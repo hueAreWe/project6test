@@ -13,6 +13,7 @@ class App extends Component{
       showSectionOne: true,
       showSectionTwo : true,
       showSectionThree : true,
+      chosenBrand: '',
       // hold the 28 colours
       finalPainting: {},
       chosenColour : '',
@@ -28,67 +29,8 @@ class App extends Component{
         skyBlue: '#C7F2F4',
         brown: '#B35A1F',
         lightTeal: '#72E6BF',
-      },
-      allBrands : [
-        'almay',
-        'alva',
-        'anna sui',
-        'annabelle',
-        'benefit',
-        'boosh',
-        `burt's bees`,
-        'butter london',
-        `c'est moi`,
-        'cargo cosmetics',
-        'china glaze',
-        'clinique',
-        'coastal classic creation',
-        'colourpop',
-        'covergirl',
-        'dalish',
-        'deciem',
-        'dior',
-        'dr. hauschka',
-        'e.l.f.',
-        'essie',
-        'fenty',
-        'glossier',
-        'green people',
-        'iman',
-        `l'oreal`,
-        'lotus cosmetics usa',
-        `maia's mineral galaxy`,
-        'marcelle',
-        'marienatie',
-        'maybelline',
-        'milani',
-        'mineral fusion',
-        'misa',
-        'mistura',
-        'moov',
-        'nudus',
-        'nyx',
-        'orly',
-        'pacifica',
-        'penny lane organics',
-        'physicians formula',
-        'piggy paint',
-        'pure anada',
-        'rejuva minerals',
-        'revlon',
-        `sally b's skin yummies`,
-        'salon perfect',
-        'sante',
-        'sinful colours',
-        'smashbox',
-        'stila',
-        'suncoat',
-        'w3llpeople',
-        'wet n wild',
-        'zorah',
-        'zorah biocosmetiques',
-      ],
-
+      }
+      
 
     }
   }
@@ -109,43 +51,44 @@ class App extends Component{
         const colorFinal = makeupData.data[12].product_colors[11].hex_value;
 
 
-        var colors = {
-
-
-
-        };
-
+        const colors = {}
         console.log(colors);
         console.log(colorFinal);
-
-        var nearestColor = require('nearest-color').from(this.state.coloursArray);
-        // (console.log(nearestColor('#f01')))
-        // console.log('this is the nearest color', nearestColor)
-        let matchedColor = nearestColor(colorFinal);
-        console.log(matchedColor.value)
-
-
-
-        axios({
-          method: 'GET',
-          url: `https://www.rijksmuseum.nl/api/en/collection?key=kwQgDPpO&f.normalized32Colors.hex=${matchedColor.value}`,
-          dataResponse: 'json',
-          params: {
-            // key: 'e2KwL8qU',
-            // normalized32Colors: '%23FF0000'
-
-          }
-        })
-          .then((data) => {
-            // this.setState({ arts: data.data.artObjects[0]})
-            // console.log(this.state.arts);
-            console.log('museum', data)
-
-          })
       })
 
-  }
+      
 
+
+
+
+
+
+        // axios({
+        //   method: 'GET',
+        //   url: `https://www.rijksmuseum.nl/api/en/collection?key=kwQgDPpO&f.normalized32Colors.hex=${matchedColor.value}`,
+        //   dataResponse: 'json',
+        //   params: {
+        //     // key: 'e2KwL8qU',
+        //     // normalized32Colors: '%23FF0000'
+
+        //   }
+        // })
+        //   .then((data) => {
+        //     // this.setState({ arts: data.data.artObjects[0]})
+        //     // console.log(this.state.arts);
+        //     console.log('museum', data)
+
+        //   })
+
+
+  }
+      // nearestColorFunction = () => {        
+      //   const nearestColor = require('nearest-color').from(this.state.coloursArray);
+      //   // (console.log(nearestColor('#f01')))
+      //   // console.log('this is the nearest color', nearestColor)
+      //   let matchedColor = nearestColor(colorFinal);
+      //   console.log(matchedColor.value)
+      // }
 
 
   render() {
