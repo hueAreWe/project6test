@@ -1,10 +1,101 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import SectionOne from './SectionOne';
+import SectionTwo from './SectionTwo';
+import SectionThree from './SectionThree';
 
 class App extends Component{
-  componentDidMount() {
+  constructor() {
+    super()
+    this.state = {
+      userInput: '',
+      showSectionOne: true,
+      showSectionTwo : true,
+      showSectionThree : true,
+      // hold the 28 colours
+      finalPainting: {},
+      chosenColour : '',
+      top3Products : [],
+      coloursArray  : {
+        1: '#737C84',
+        2: '#FBF6E1',
+        darkTeal: '#2F4F4F',
+        4: '#E0CC91',
+        black: '#000000',
+        6: '#43C6F8',
+        grey: '#B5BFCC',
+        skyBlue: '#C7F2F4',
+        brown: '#B35A1F',
+        lightTeal: '#72E6BF',
+      },
+      allBrands : [
+        'almay',
+        'alva',
+        'anna sui',
+        'annabelle',
+        'benefit',
+        'boosh',
+        `burt's bees`,
+        'butter london',
+        `c'est moi`,
+        'cargo cosmetics',
+        'china glaze',
+        'clinique',
+        'coastal classic creation',
+        'colourpop',
+        'covergirl',
+        'dalish',
+        'deciem',
+        'dior',
+        'dr. hauschka',
+        'e.l.f.',
+        'essie',
+        'fenty',
+        'glossier',
+        'green people',
+        'iman',
+        `l'oreal`,
+        'lotus cosmetics usa',
+        `maia's mineral galaxy`,
+        'marcelle',
+        'marienatie',
+        'maybelline',
+        'milani',
+        'mineral fusion',
+        'misa',
+        'mistura',
+        'moov',
+        'nudus',
+        'nyx',
+        'orly',
+        'pacifica',
+        'penny lane organics',
+        'physicians formula',
+        'piggy paint',
+        'pure anada',
+        'rejuva minerals',
+        'revlon',
+        `sally b's skin yummies`,
+        'salon perfect',
+        'sante',
+        'sinful colours',
+        'smashbox',
+        'stila',
+        'suncoat',
+        'w3llpeople',
+        'wet n wild',
+        'zorah',
+        'zorah biocosmetiques',
+      ],
 
+
+    }
+  }
+
+
+
+  componentDidMount() {
     axios({
       method: 'GET',
       url: 'http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline',
@@ -19,16 +110,7 @@ class App extends Component{
 
 
         var colors = {
-          1: '#737C84',
-          2: '#FBF6E1',
-          darkTeal: '#2F4F4F',
-          4: '#E0CC91',
-          black: '#000000',
-          6: '#43C6F8',
-          grey: '#B5BFCC',
-          skyBlue: '#C7F2F4',
-          brown: '#B35A1F',
-          lightTeal: '#72E6BF'
+
 
 
         };
@@ -36,14 +118,14 @@ class App extends Component{
         console.log(colors);
         console.log(colorFinal);
 
-        var nearestColor = require('nearest-color').from(colors);
+        var nearestColor = require('nearest-color').from(this.state.coloursArray);
         // (console.log(nearestColor('#f01')))
         // console.log('this is the nearest color', nearestColor)
         let matchedColor = nearestColor(colorFinal);
         console.log(matchedColor.value)
 
 
-      
+
         axios({
           method: 'GET',
           url: `https://www.rijksmuseum.nl/api/en/collection?key=kwQgDPpO&f.normalized32Colors.hex=${matchedColor.value}`,
@@ -65,10 +147,30 @@ class App extends Component{
   }
 
 
+
   render() {
     return (
       <div className="App">
-        
+        <SectionOne />
+        { 
+          this.state.showSectionTwo === true
+          ?( 
+
+            <SectionTwo />
+            )
+          :null
+        }
+        {
+          (
+            this.state.showSectionThree === true
+              ?
+
+              (<SectionThree />)
+            :
+              (null)
+          )
+          
+        }
       </div>
     );
     
