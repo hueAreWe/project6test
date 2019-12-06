@@ -6,6 +6,65 @@ class SectionOne extends Component {
         this.state = {
             searchValue: "",
             // selectedBrand: "",
+            filterBrand: [
+                "almay",
+                "alva",
+                "anna sui",
+                "annabelle",
+                "benefit",
+                "boosh",
+                "burt's bees",
+                "butter london",
+                "c'est moi",
+                "cargo cosmetics",
+                "china glaze",
+                "clinique",
+                "coastal classic creation",
+                "colourpop",
+                "covergirl",
+                "dalish",
+                "deciem",
+                "dior",
+                "dr. hauschka",
+                "e.l.f.",
+                "essie",
+                "fenty",
+                "glossier",
+                "green people",
+                "iman",
+                "l'oreal",
+                "lotus cosmetics usa",
+                "maia's mineral galaxy",
+                "marcelle",
+                "marienatie",
+                "maybelline",
+                "milani",
+                "mineral fusion",
+                "misa",
+                "mistura",
+                "moov",
+                "nudus",
+                "nyx",
+                "orly",
+                "pacifica",
+                "penny lane organics",
+                "physicians formula",
+                "piggy paint",
+                "pure anada",
+                "rejuva minerals",
+                "revlon",
+                "sally b's skin yummies",
+                "salon perfect",
+                "sante",
+                "sinful colours",
+                "smashbox",
+                "stila",
+                "suncoat",
+                "w3llpeople",
+                "wet n wild",
+                "zorah",
+                "zorah biocosmetiques",
+            ],
             allBrands: [
                 "almay",
                 "alva",
@@ -79,12 +138,16 @@ class SectionOne extends Component {
             //reset error message
             errorMessage: "",
             // recording the user input
-            searchValue: e.target.value
+            searchValue: e.target.value.toLowerCase(),
+            
+            filterBrand: this.state.filterBrand.filter(item => item.includes(this.state.searchValue))
         })
     }
 
     handleSubmit = e => {
         e.preventDefault()
+
+        console.log(this.state.searchValue)
             
         if (this.state.searchValue !== "") {
         
@@ -141,6 +204,13 @@ render() {
                     Submit
                 </button>
             </form>
+
+            <div className="brandsContainer">
+                {this.state.filterBrand.map((i)=>{
+                    return <button> {i} </button>
+                })}
+            </div>
+            
         </div>
         )
     }

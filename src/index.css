@@ -34,3 +34,17 @@ code {
   align-items: center;
   margin-top: 20px
 }
+
+.brandsContainer {
+  width: 80%;
+}
+
+.brandsContainer button {
+  background: none;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 5px;
+  border: rgb(232, 232, 232) outset 3px;
+  text-transform: capitalize;
+}
