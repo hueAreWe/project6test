@@ -9,26 +9,87 @@ class App extends Component{
   constructor() {
     super()
     this.state = {
-      userInput: '',
+      userInput: "",
       showSectionOne: true,
       showSectionTwo : true,
       showSectionThree : true,
-      chosenBrand: '',
+      chosenBrand: "orly",
       // hold the 28 colours
       finalPainting: {},
-      chosenColour : '',
-      top3Products : [],
-      coloursArray  : {
-        1: '#737C84',
-        2: '#FBF6E1',
-        darkTeal: '#2F4F4F',
-        4: '#E0CC91',
-        black: '#000000',
-        6: '#43C6F8',
-        grey: '#B5BFCC',
-        skyBlue: '#C7F2F4',
-        brown: '#B35A1F',
-        lightTeal: '#72E6BF',
+      chosenColour : "",
+      top3Products: ['product1', 'product2', 'product3'].join(", "),
+      coloursArray: [],
+      coloursArray2  : {
+        1: "#737C84",
+        2: "#FBF6E1",
+        darkTeal: "#2F4F4F",
+        4: "#E0CC91",
+        black: "#000000",
+        6: "#43C6F8",
+        grey: "#B5BFCC",
+        skyBlue: "#C7F2F4",
+        brown: "#B35A1F",
+        lightTeal: "#72E6BF",
+        allBrands: [
+          "almay",
+          "alva",
+          "anna sui",
+          "annabelle",
+          "benefit",
+          "boosh",
+          "burt's bees",
+          "butter london",
+          "c'est moi",
+          "cargo cosmetics",
+          "china glaze",
+          "clinique",
+          "coastal classic creation",
+          "colourpop",
+          "covergirl",
+          "dalish",
+          "deciem",
+          "dior",
+          "dr. hauschka",
+          "e.l.f.",
+          "essie",
+          "fenty",
+          "glossier",
+          "green people",
+          "iman",
+          "l'oreal",
+          "lotus cosmetics usa",
+          "maia's mineral galaxy",
+          "marcelle",
+          "marienatie",
+          "maybelline",
+          "milani",
+          "mineral fusion",
+          "misa",
+          "mistura",
+          "moov",
+          "nudus",
+          "nyx",
+          "orly",
+          "pacifica",
+          "penny lane organics",
+          "physicians formula",
+          "piggy paint",
+          "pure anada",
+          "rejuva minerals",
+          "revlon",
+          "sally b's skin yummies",
+          "salon perfect",
+          "sante",
+          "sinful colours",
+          "smashbox",
+          "stila",
+          "suncoat",
+          "w3llpeople",
+          "wet n wild",
+          "zorah",
+          "zorah biocosmetiques",
+        ]
+      
       }
       
 
@@ -38,31 +99,7 @@ class App extends Component{
 
 
   componentDidMount() {
-    axios({
-      method: 'GET',
-      url: 'http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline',
-      dataResponse: 'json'
-    })
-      .then((makeupData) => {
-        // console.log('makeup api results', makeupData.data.map((peepee) => {
-        // return peepee.product_colors
-        //         })
-        // )
-        const colorFinal = makeupData.data[12].product_colors[11].hex_value;
-
-
-        const colors = {}
-        console.log(colors);
-        console.log(colorFinal);
-      })
-
-      
-
-
-
-
-
-
+    
         // axios({
         //   method: 'GET',
         //   url: `https://www.rijksmuseum.nl/api/en/collection?key=kwQgDPpO&f.normalized32Colors.hex=${matchedColor.value}`,
@@ -77,11 +114,46 @@ class App extends Component{
         //     // this.setState({ arts: data.data.artObjects[0]})
         //     // console.log(this.state.arts);
         //     console.log('museum', data)
-
         //   })
-
-
   }
+
+
+  makeUpCall = () => {
+    axios({
+        method: 'GET',
+        url: `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${this.state.chosenBrand}`,
+        dataResponse: 'json'
+      })
+      .then((makeUpData) => {
+        // console.log('makeup api results', makeupData.data.map((peepee) => {
+        // return peepee.product_colors
+        //         })
+        // )
+        // const colorFinal = makeupData.data[1].product_colors[1].hex_value;
+        // console.log('this is the mameup data we called', makeupData)
+
+        // const colors = {}
+        // console.log(colors);
+        
+        const arrayOfProducts = []
+        const loopedColours = []
+        makeUpData.data.map((products) => {          
+          arrayOfProducts.push(products.name);
+          loopedColours.push(products.prod)
+
+        })
+        
+        this.setState({
+          top3Products: arrayOfProducts.join(", ")
+        })
+
+        console.log(makeUpData.data.p);
+
+
+
+      })
+  }
+
       // nearestColorFunction = () => {        
       //   const nearestColor = require('nearest-color').from(this.state.coloursArray);
       //   // (console.log(nearestColor('#f01')))
@@ -99,7 +171,8 @@ class App extends Component{
           this.state.showSectionTwo === true
           ?( 
 
-            <SectionTwo />
+              <SectionTwo makeUpCallProp={this.makeUpCall} chosenBrandProp={this.state.chosenBrand} top3ProductsProp={this.state.top3Products} coloursArrayProp={this.state.coloursArray}/>
+              
             )
           :null
         }
