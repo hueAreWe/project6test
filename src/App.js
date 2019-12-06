@@ -13,13 +13,14 @@ class App extends Component{
       showSectionOne: true,
       showSectionTwo : true,
       showSectionThree : true,
+      paintingColor: '',
       chosenBrand: "orly",
-      // hold the 28 colours
+      // hold the 28 colors
       finalPainting: {},
-      chosenColour : "",
+      chosenColor : "",
       top3Products: ['product1', 'product2', 'product3'].join(", "),
-      coloursArray: [],
-      coloursArray2  : {
+      colorsArray: [],
+      colorsArray2  : {
         1: "#737C84",
         2: "#FBF6E1",
         darkTeal: "#2F4F4F",
@@ -88,7 +89,10 @@ class App extends Component{
           "wet n wild",
           "zorah",
           "zorah biocosmetiques",
-        ]
+        ],
+        brandObject: {
+
+        }
       
       }
       
@@ -125,37 +129,75 @@ class App extends Component{
         dataResponse: 'json'
       })
       .then((makeUpData) => {
-        // console.log('makeup api results', makeupData.data.map((peepee) => {
-        // return peepee.product_colors
-        //         })
-        // )
-        // const colorFinal = makeupData.data[1].product_colors[1].hex_value;
-        // console.log('this is the mameup data we called', makeupData)
-
-        // const colors = {}
-        // console.log(colors);
         
         const arrayOfProducts = []
-        const loopedColours = []
-        makeUpData.data.map((products) => {          
-          arrayOfProducts.push(products.name);
-          loopedColours.push(products.prod)
+        const loopedColors = []
+        const brandInfo = {
+          product1: {
+            
+          },
+          product2: {},
+          product3: {},
+            // // productDetails : {
+            // productName: '',
+            // color1: {
+            //   colorName: '',
+            //   hexValue: '',
+            // },
+            // color2: {
+            //   colorName: '',
+            //   hexValue: '',
+            // }
+          
+        }
+        
+        makeUpData.data.map((products) => {
+
+        // const productColor = '',
+
+        if (products.product_colors.length >= 7) {
+            // arrayOfProducts.push(products.name);
+            // loopedColors.push(products.product_colors)
+            const colorObject = {
+              hex: '',
+              nameColor: '',
+            }
+            products.product_colors.map((color) => {
+              colorObject.hex = color.hex_value;
+              colorObject.nameColor = color.colour_name;
+            })
+          brandInfo.product1.productName = products.name;
+          brandInfo.product1.color1 = colorObject;
+
+          }       
+          // this.setState({
+          //   brandObject = brandInfo
+          //   // }
+          // })
+
+        // loopedColors.push(products.prod)
+        // products.product_colors.map((colorMap) => {
+        //     loopedColors.push(colorMap.hex_value)
+        //   })
+
 
         })
+        console.log(brandInfo)
+
+        // loopedColors.map((color) => {
+        //   if ()
+        // })
         
         this.setState({
           top3Products: arrayOfProducts.join(", ")
         })
-
-        console.log(makeUpData.data.p);
-
 
 
       })
   }
 
       // nearestColorFunction = () => {        
-      //   const nearestColor = require('nearest-color').from(this.state.coloursArray);
+      //   const nearestColor = require('nearest-color').from(this.state.colorsArray);
       //   // (console.log(nearestColor('#f01')))
       //   // console.log('this is the nearest color', nearestColor)
       //   let matchedColor = nearestColor(colorFinal);
@@ -171,7 +213,7 @@ class App extends Component{
           this.state.showSectionTwo === true
           ?( 
 
-              <SectionTwo makeUpCallProp={this.makeUpCall} chosenBrandProp={this.state.chosenBrand} top3ProductsProp={this.state.top3Products} coloursArrayProp={this.state.coloursArray}/>
+              <SectionTwo makeUpCallProp={this.makeUpCall} chosenBrandProp={this.state.chosenBrand} top3ProductsProp={this.state.top3Products} colorsArrayProp={this.state.colorsArray}/>
               
             )
           :null

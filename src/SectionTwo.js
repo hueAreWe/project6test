@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+​
 class SectionTwo extends Component {
     constructor() {
         super();
@@ -8,7 +8,7 @@ class SectionTwo extends Component {
             color: '#9C7667',
         }
     }
-
+​
     
     render() {
         return (
@@ -17,15 +17,17 @@ class SectionTwo extends Component {
                 <h1>You chose the brand: {this.props.chosenBrandProp}</h1>
                 <p>Choosing {this.props.chosenBrandProp} is a great idea! Personally, we love {this.props.top3ProductsProp}</p>
                 {
-                    /* <p>Colour 1 {this.props.coloursArrayProp[0]}. Colour 2 {this.props.coloursArrayProp[1]}. Colour 3 {this.props.coloursArrayProp[2]}. Colour 4 {this.props.coloursArrayProp[3]}. Colour 5 {this.props.coloursArrayProp[4]}. Colour 6 {this.props.coloursArrayProp[6]}. Colour 7 {this.props.coloursArrayProp[7]}</p> */
+                    /* 
+                    <p>Color 1 {this.props.colorsArrayProp[0]}. Color 2 {this.props.colorsArrayProp[1]}. Color 3 {this.props.colorsArrayProp[2]}. Color 4 {this.props.colorsArrayProp[3]}. Color 5 {this.props.colorsArrayProp[4]}. Color 6 {this.props.colorsArrayProp[6]}. Color 7 {this.props.colorsArrayProp[7]}</p> 
+                    */
                 }
                 
                 <button onClick={this.props.makeUpCallProp}>howdy</button>
-
+​
             </div>
         )
     }
-
+​
 }
-
+​
 export default SectionTwo;
