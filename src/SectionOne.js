@@ -161,7 +161,7 @@ render() {
 
             <div className="brandsContainer">
                 {this.state.filterBrand.map((i)=>{
-                    return <button id={i} onClick={this.brandButtonSubmit}> {i} </button>
+                    return <button key={i} id={i} onClick={this.brandButtonSubmit}> {i} </button>
                 })}
             </div>
             

@@ -15,7 +15,7 @@ class App extends Component{
       showSectionThree : true,
       chosenBrand: '',
       // hold the 28 colours
-      paintingColor: '#9C7667',
+      paintingColor: '#000000',
       finalPainting: {},
       chosenColour : '',
       top3Products : [],

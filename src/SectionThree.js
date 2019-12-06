@@ -35,6 +35,8 @@ class SectionThree extends Component {
         
     }
 
+    // const shuffled = this.state.whatever.sort(() => 0.5 - Math.random());
+
     getArt = (e) => {
         e.preventDefault()
 
@@ -44,8 +46,11 @@ class SectionThree extends Component {
             dataResponse: 'json',
             params: {
                 key: 'e2KwL8qU',
-                "normalized32Colors.hex": this.props.paintingColorProp,
-                type: 'painting'
+                "f.normalized32Colors.hex": this.props.paintingColorProp,
+                type: 'painting',
+                imgonly: true,
+                // s: 'relevance',
+                ps: 100
 
             }
         })
@@ -53,8 +58,11 @@ class SectionThree extends Component {
                 // this.setState({ arts: data.data.artObjects[0]})
                 // console.log(this.state.arts);
                 console.log('museum', data.data)
+                
+                const shuffled = data.data.artObjects
+                
                 this.setState({
-                    paintingArray: data.data.artObjects
+                    paintingArray: shuffled.sort(() => 0.5 - Math.random())
                 })
 
 
@@ -75,7 +83,7 @@ class SectionThree extends Component {
                             <div className="individualPainting">
                                 {this.state.paintingArray.map((i) => {
                                     return (
-                                    <div>
+                                    <div key={i.id}>
                                         <div className="image">
                                             <img src={i.webImage.url} alt={i.title} />
                                         </div>
