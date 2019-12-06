@@ -124,7 +124,7 @@ class SectionOne extends Component {
 render() {
 
     return (
-        <div>
+        <div className="sectionOne">
             <h1>Hue Are You?</h1>
             <form action="">
                 <label htmlFor="searchBar">Enter your favourite brand</label>
