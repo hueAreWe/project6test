@@ -12,9 +12,10 @@ class App extends Component{
       userInput: '',
       showSectionOne: true,
       showSectionTwo : false,
-      showSectionThree : false,
+      showSectionThree : true,
       chosenBrand: '',
       // hold the 28 colours
+      paintingColor: '#9C7667',
       finalPainting: {},
       chosenColour : '',
       top3Products : [],
@@ -126,8 +127,8 @@ class App extends Component{
           (
             this.state.showSectionThree === true
               ?
-
-              (<SectionThree />)
+///////////////////////////////////////////////////////////////////////////////////////
+              (<SectionThree paintingColorProp={this.state.paintingColor}/>)
             :
               (null)
           )
