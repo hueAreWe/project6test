@@ -151,8 +151,26 @@ class App extends Component {
           
           
         })
-        console.log(brandInfo)
+        // console.log(brandInfo);
+
+        const appendBrandInfo = brandInfo.filter((filterBrandInfo) => {
+          if (typeof filterBrandInfo !== undefined) {
+            console.log('this is the thing', filterBrandInfo)
+            return filterBrandInfo.map((brandInfoArray) => {
+              return console.log('hey', brandInfoArray.hex)
+              
+              
+            })
+          }
+
+          // return typeof filterBrandInfo !== undefined;
+            
+        })
+        console.log('testtestest', appendBrandInfo)
+        // console.log(appendBrandInfo)
+
         // brandArray.push(brandInfo)
+        // console.log(brandInfo[3])
         
         
         // this.setState({
@@ -180,7 +198,7 @@ class App extends Component {
           this.state.showSectionTwo === true
             ? (
 
-              <SectionTwo makeUpCallProp={this.makeUpCall} chosenBrandProp={this.state.chosenBrand} top3ProductsProp={this.state.top3Products} colorsArrayProp={this.state.colorsArray} brandProductsAndColorsProp={this.state.brandArray} />
+              <SectionTwo makeUpCallProp={this.makeUpCall} chosenBrandProp={this.state.chosenBrand} top3ProductsProp={this.state.top3Products} colorsArrayProp={this.state.colorsArray} brandProductsAndColorsProp={this.state.appendBrandInfo} />
 
             )
             : null

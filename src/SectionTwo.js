@@ -18,7 +18,7 @@ class SectionTwo extends Component {
     render() {
         return (
             <div>
-                )
+                
                 {/* {console.log(this.props.chosenBrandProp)} */}
                 {
                 
@@ -26,6 +26,7 @@ class SectionTwo extends Component {
                 }
                 <h1>You chose the brand: {this.props.chosenBrandProp}</h1>
                 <p>Choosing {this.props.chosenBrandProp} is a great idea! Personally, we love {this.props.top3ProductsProp}</p>
+                <p>helloo{this.props.brandProductsAndColorsProp}</p>
                 {
                     
                     
