@@ -153,20 +153,25 @@ class App extends Component {
         })
         // console.log(brandInfo);
 
-        const appendBrandInfo = brandInfo.filter((filterBrandInfo) => {
-          if (typeof filterBrandInfo !== undefined) {
-            console.log('this is the thing', filterBrandInfo)
-            return filterBrandInfo.map((brandInfoArray) => {
-              return console.log('hey', brandInfoArray.hex)
-              
-              
-            })
-          }
+        const appendBrandInfo = () => {
+          brandInfo.filter((filterBrandInfo) => {
+            if (typeof filterBrandInfo !== undefined) {
+              // console.log('filtered', filterBrandInfo)
 
-          // return typeof filterBrandInfo !== undefined;
+              return filterBrandInfo.map((brandInfoArray, index) => {
+                if (index < 8) {
+                
+                  return console.log(brandInfoArray.hex, brandInfoArray.nameColor)
+                }
+              
+              })
+            }
+
+            // return typeof filterBrandInfo !== undefined;
             
-        })
-        console.log('testtestest', appendBrandInfo)
+          })
+        }
+        console.log('testtestest', appendBrandInfo())
         // console.log(appendBrandInfo)
 
         // brandArray.push(brandInfo)
@@ -198,7 +203,7 @@ class App extends Component {
           this.state.showSectionTwo === true
             ? (
 
-              <SectionTwo makeUpCallProp={this.makeUpCall} chosenBrandProp={this.state.chosenBrand} top3ProductsProp={this.state.top3Products} colorsArrayProp={this.state.colorsArray} brandProductsAndColorsProp={this.state.appendBrandInfo} />
+              <SectionTwo makeUpCallProp={this.makeUpCall} chosenBrandProp={this.state.chosenBrand} top3ProductsProp={this.state.top3Products} colorsArrayProp={this.state.colorsArray} productColorsProp={this.appendBrandInfo} />
 
             )
             : null

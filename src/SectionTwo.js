@@ -26,13 +26,13 @@ class SectionTwo extends Component {
                 }
                 <h1>You chose the brand: {this.props.chosenBrandProp}</h1>
                 <p>Choosing {this.props.chosenBrandProp} is a great idea! Personally, we love {this.props.top3ProductsProp}</p>
-                <p>helloo{this.props.brandProductsAndColorsProp}</p>
+                <p>there are the product colors we love{this.props.productColorsProp}</p>
                 {
                     
                     
-                    // <p>Color 1 {this.props.brandProductsAndColorsProp}. Color 2 {this.props.brandProductsAndColorsProp}. Color 3 {this.props.brandProductsAndColorsProp}. Color 4 {this.props.brandProductsAndColorsProp}. Color 5 {this.props.brandProductsAndColorsProp}. Color 6 {this.props.brandProductsAndColorsProp}. Color 7 {this.props.brandProductsAndColorsProp}</p> 
+                    // <p>Color 1 {this.props.productColorsProp}. Color 2 {this.props.productColorsProp}. Color 3 {this.props.productColorsProp}. Color 4 {this.props.productColorsProp}. Color 5 {this.props.productColorsProp}. Color 6 {this.props.productColorsProp}. Color 7 {this.props.productColorsProp}</p> 
                     // colorsssssss 
-                    // this.props.brandProductsAndColorsProp.map((eeee) => {
+                    // this.props.productColorsProp.map((eeee) => {
 
                     //     // return (
                     //     //     <p> {eeee.product_name} </p>  
