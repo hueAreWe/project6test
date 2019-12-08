@@ -18,8 +18,10 @@ class App extends Component {
       // hold the 28 colors
       finalPainting: {},
       chosenColor: "",
-      top3Products: ['product1', 'product2', 'product3'].join(", "),
+      top3Products: ['product1', 'product2', 'product3'].join(", "), 
       colorsArray: [],
+      brandObject: {},
+      brandArray: [],
       colorsArray2: {
         1: "#737C84",
         2: "#FBF6E1",
@@ -90,8 +92,7 @@ class App extends Component {
           "zorah",
           "zorah biocosmetiques",
         ],
-        brandObject: {},
-        brandArray: [],
+        
 
 
       }
@@ -102,21 +103,6 @@ class App extends Component {
 
   componentDidMount() {
 
-    // axios({
-    //   method: 'GET',
-    //   url: `https://www.rijksmuseum.nl/api/en/collection?key=kwQgDPpO&f.normalized32Colors.hex=${matchedColor.value}`,
-    //   dataResponse: 'json',
-    //   params: {
-    //     // key: 'e2KwL8qU',
-    //     // normalized32Colors: '%23FF0000'
-
-    //   }
-    // })
-    //   .then((data) => {
-    //     // this.setState({ arts: data.data.artObjects[0]})
-    //     // console.log(this.state.arts);
-    //     console.log('museum', data)
-    //   })
   }
 
 
@@ -131,10 +117,9 @@ class App extends Component {
         const arrayOfProducts = []
         const brandInfo = []
         
-        makeUpData.data.map((products, index) => {
-          const indexNumProduct = index;
+        makeUpData.data.map((products) => {
           if (products.product_colors.length >= 7) {
-            const colorObject = products.product_colors.map((color, index) => {
+            const colorArray = products.product_colors.map((color, index) => {
               if (index < 8) {
 
                 return {
@@ -143,45 +128,27 @@ class App extends Component {
                 }
               }
             })
-            brandInfo[indexNumProduct] = colorObject;
-            brandInfo[indexNumProduct].productName = products.name;
-            // brandArray.push(brandInfo[indexNumProduct])
-            // brandArray.push(brandInfo[indexNumProduct])
+
+            colorArray.push(products.name)
+            const newColorArray = colorArray.filter((colourObject) => {
+              if (typeof colourObject !== undefined) {
+                return colourObject
+              }
+            })
+            arrayOfProducts.push(products.name)
+            brandInfo.push(newColorArray)
+
           }
-          
-          
+
+
         })
-        // console.log(brandInfo);
-
-        const appendBrandInfo = () => {
-          brandInfo.filter((filterBrandInfo) => {
-            if (typeof filterBrandInfo !== undefined) {
-              // console.log('filtered', filterBrandInfo)
-
-              return filterBrandInfo.map((brandInfoArray, index) => {
-                if (index < 8) {
-                
-                  return console.log(brandInfoArray.hex, brandInfoArray.nameColor)
-                }
-              
-              })
-            }
-
-            // return typeof filterBrandInfo !== undefined;
-            
+        if (typeof brandInfo !== undefined) {
+          console.log(brandInfo[0])
+          this.setState({
+            top3Products: arrayOfProducts.join(", "),
+            brandArray: brandInfo,
           })
         }
-        console.log('testtestest', appendBrandInfo())
-        // console.log(appendBrandInfo)
-
-        // brandArray.push(brandInfo)
-        // console.log(brandInfo[3])
-        
-        
-        // this.setState({
-        //   top3Products: arrayOfProducts.join(", "),
-        //   brandArray: brandInfo,
-        // })
 
       })
   }
@@ -203,7 +170,7 @@ class App extends Component {
           this.state.showSectionTwo === true
             ? (
 
-              <SectionTwo makeUpCallProp={this.makeUpCall} chosenBrandProp={this.state.chosenBrand} top3ProductsProp={this.state.top3Products} colorsArrayProp={this.state.colorsArray} productColorsProp={this.appendBrandInfo} />
+              <SectionTwo brandArray={this.state.brandArray} makeUpCallProp={this.makeUpCall} chosenBrandProp={this.state.chosenBrand} top3ProductsProp={this.state.top3Products} colorsArrayProp={this.state.colorsArray} productColorsProp={this.appendBrandInfo} />
 
             )
             : null

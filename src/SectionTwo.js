@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 
 class SectionTwo extends Component {
     constructor() {
@@ -7,39 +6,51 @@ class SectionTwo extends Component {
         this.state = {
             color: '#9C7667',
         }
-    }
-        appendColors = () => {
-            for (let i in this.props.brandProductsAndColorsProp) {
-                console.log('hiiii', i)
-                return i
-            }
-            this.appendColors();
-        }
+    } 
+        // appendColors = () => {
+        //     for (let i in this.props.brandProductsAndColorsProp) {
+        //         console.log('hiiii', i)
+        //         return i
+        //     }
+        //     this.appendColors();
+        // }
     render() {
+        // console.log(this.props.brandArray[0])
         return (
             <div>
-                
-                {/* {console.log(this.props.chosenBrandProp)} */}
-                {
-                
-                    
-                }
                 <h1>You chose the brand: {this.props.chosenBrandProp}</h1>
                 <p>Choosing {this.props.chosenBrandProp} is a great idea! Personally, we love {this.props.top3ProductsProp}</p>
-                <p>there are the product colors we love{this.props.productColorsProp}</p>
-                {
-                    
-                    
-                    // <p>Color 1 {this.props.productColorsProp}. Color 2 {this.props.productColorsProp}. Color 3 {this.props.productColorsProp}. Color 4 {this.props.productColorsProp}. Color 5 {this.props.productColorsProp}. Color 6 {this.props.productColorsProp}. Color 7 {this.props.productColorsProp}</p> 
-                    // colorsssssss 
-                    // this.props.productColorsProp.map((eeee) => {
+               
 
-                    //     // return (
-                    //     //     <p> {eeee.product_name} </p>  
-                    //     // )
-                    //     console.log(eeee)
-                    // })
-                    
+                {/* <p>{this.props.brandArray[0]}</p> */
+                    this.props.brandArray.map((product) => { 
+                        
+                        const productName = product.slice(-1)[0]
+                        
+                        return (
+                            <div>
+                                <h3>{productName}</h3>
+                                <p>{product[0].hex}</p>
+                                <p>{product[1].hex}</p>
+                                <p>{product[2].hex}</p>
+                                <p>{product[3].hex}</p>
+                                <p>{product[4].hex}</p>
+                                <p>{product[5].hex}</p>
+                                <p>{product[6].hex}</p>
+                            </div>
+                        )
+                        
+                        // product.map((color) => {
+                        //     console.log(color)
+                        // })
+                        
+                        // product.map((color) => {
+                        //     return (
+                        //         <p>{color}</p>
+                        //     )
+                        // })
+                        
+                    })
                 }
                 
                 <button onClick={this.props.makeUpCallProp}>howdy</button>
