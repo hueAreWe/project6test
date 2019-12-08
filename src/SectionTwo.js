@@ -7,15 +7,8 @@ class SectionTwo extends Component {
             color: '#9C7667',
         }
     } 
-        // appendColors = () => {
-        //     for (let i in this.props.brandProductsAndColorsProp) {
-        //         console.log('hiiii', i)
-        //         return i
-        //     }
-        //     this.appendColors();
-        // }
+   
     render() {
-        // console.log(this.props.brandArray[0])
         return (
             <div>
                 <h1>You chose the brand: {this.props.chosenBrandProp}</h1>
@@ -30,25 +23,15 @@ class SectionTwo extends Component {
                         return (
                             <div>
                                 <h3>{productName}</h3>
-                                <p>{product[0].hex}</p>
-                                <p>{product[1].hex}</p>
-                                <p>{product[2].hex}</p>
-                                <p>{product[3].hex}</p>
-                                <p>{product[4].hex}</p>
-                                <p>{product[5].hex}</p>
-                                <p>{product[6].hex}</p>
+                                <button onClick={this.props.storeColor} value={product[0].hex}>{product[0].hex}</button>
+                                <button onClick={this.props.storeColor} value={product[1].hex}>{product[1].hex}</button>
+                                <button onClick={this.props.storeColor} value={product[2].hex}>{product[2].hex}</button>
+                                <button onClick={this.props.storeColor} value={product[3].hex}>{product[3].hex}</button>
+                                <button onClick={this.props.storeColor} value={product[4].hex}>{product[4].hex}</button>
+                                <button onClick={this.props.storeColor} value={product[5].hex}>{product[5].hex}</button>
+                                <button onClick={this.props.storeColor} value={product[6].hex}>{product[6].hex}</button>
                             </div>
                         )
-                        
-                        // product.map((color) => {
-                        //     console.log(color)
-                        // })
-                        
-                        // product.map((color) => {
-                        //     return (
-                        //         <p>{color}</p>
-                        //     )
-                        // })
                         
                     })
                 }

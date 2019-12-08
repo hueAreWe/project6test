@@ -92,12 +92,7 @@ class App extends Component {
           "zorah",
           "zorah biocosmetiques",
         ],
-        
-
-
       }
-
-
     }
   }
 
@@ -105,7 +100,13 @@ class App extends Component {
 
   }
 
-
+  storeColor = (e) => {
+    console.log(e.target.value)
+    this.setState({
+      chosenColor: e.target.value,
+    })
+  } 
+  
   makeUpCall = () => {
     axios({
       method: 'GET',
@@ -170,7 +171,7 @@ class App extends Component {
           this.state.showSectionTwo === true
             ? (
 
-              <SectionTwo brandArray={this.state.brandArray} makeUpCallProp={this.makeUpCall} chosenBrandProp={this.state.chosenBrand} top3ProductsProp={this.state.top3Products} colorsArrayProp={this.state.colorsArray} productColorsProp={this.appendBrandInfo} />
+              <SectionTwo storeColor={this.storeColor}brandArray={this.state.brandArray} makeUpCallProp={this.makeUpCall} chosenBrandProp={this.state.chosenBrand} top3ProductsProp={this.state.top3Products} colorsArrayProp={this.state.colorsArray} productColorsProp={this.appendBrandInfo} />
 
             )
             : null
