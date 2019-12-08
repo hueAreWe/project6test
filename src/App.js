@@ -12,16 +12,18 @@ class App extends Component {
       userInput: "",
       showSectionOne: true,
       showSectionTwo: true,
-      showSectionThree: true,
+      showSectionThree: false,
       paintingColor: "",
       chosenBrand: "orly",
       // hold the 28 colors
       finalPainting: {},
       chosenColor: "",
-      top3Products: ['product1', 'product2', 'product3'].join(", "), 
+      topProducts: [],
       colorsArray: [],
       brandObject: {},
       brandArray: [],
+      productImage: '',
+      productPrice: '',
       colorsArray2: {
         1: "#737C84",
         2: "#FBF6E1",
@@ -114,7 +116,7 @@ class App extends Component {
       dataResponse: 'json'
     })
       .then((makeUpData) => {
-
+        
         const arrayOfProducts = []
         const brandInfo = []
         
@@ -122,7 +124,8 @@ class App extends Component {
           if (products.product_colors.length >= 7) {
             const colorArray = products.product_colors.map((color, index) => {
               if (index < 8) {
-
+                
+                
                 return {
                   hex: color.hex_value,
                   nameColor: color.colour_name,
@@ -131,23 +134,28 @@ class App extends Component {
             })
 
             colorArray.push(products.name)
-            const newColorArray = colorArray.filter((colourObject) => {
-              if (typeof colourObject !== undefined) {
-                return colourObject
+            const newColorArray = colorArray.filter((colorObject) => {
+              if (typeof colorObject !== undefined) {
+                return colorObject
               }
             })
+
             arrayOfProducts.push(products.name)
             brandInfo.push(newColorArray)
 
+            this.setState({
+              productImage: products.image_link,
+              productPrice: products.productPrice
+            })
+
           }
-
-
         })
         if (typeof brandInfo !== undefined) {
           console.log(brandInfo[0])
           this.setState({
-            top3Products: arrayOfProducts.join(", "),
+            topProducts: arrayOfProducts.join("and "),
             brandArray: brandInfo,
+            
           })
         }
 
@@ -171,7 +179,7 @@ class App extends Component {
           this.state.showSectionTwo === true
             ? (
 
-              <SectionTwo storeColor={this.storeColor}brandArray={this.state.brandArray} makeUpCallProp={this.makeUpCall} chosenBrandProp={this.state.chosenBrand} top3ProductsProp={this.state.top3Products} colorsArrayProp={this.state.colorsArray} productColorsProp={this.appendBrandInfo} />
+              <SectionTwo storeColor={this.storeColor} brandArray={this.state.brandArray} makeUpCallProp={this.makeUpCall} chosenBrandProp={this.state.chosenBrand} topProductsProp={this.state.topProducts} colorsArrayProp={this.state.colorsArray} productColorsProp={this.appendBrandInfo} productImageProp={this.state.productImage} productPriceProp={this.state.productPrice} />
 
             )
             : null
