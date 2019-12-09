@@ -14,7 +14,7 @@ class App extends Component {
       showSectionOne: true,
       showSectionTwo: true,
       showSectionThree: true,
-      paintingColor: "#981313",
+      paintingColor: "#2F4F4F",
       chosenBrand: "orly",
       // hold the 28 colors
       finalPainting: {},
