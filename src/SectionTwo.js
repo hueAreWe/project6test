@@ -42,6 +42,7 @@ class SectionTwo extends Component {
                                     <div className="makeUpImg">
                                     <img src={this.props.productImageProp} alt={`${this.props.chosenBrandProp}'s ${productName}`} />
                                     </div>
+                                    <button value={productName}>Scroll</button>
                                 </div>
                                 
                                 <div className="makeUpColors">
