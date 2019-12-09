@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.scss';
+import './App.css';
 import SectionOne from './SectionOne';
 import SectionTwo from './SectionTwo';
 import SectionThree from './SectionThree';
@@ -12,8 +13,8 @@ class App extends Component {
       userInput: "",
       showSectionOne: true,
       showSectionTwo: true,
-      showSectionThree: false,
-      paintingColor: "red",
+      showSectionThree: true,
+      paintingColor: "#981313",
       chosenBrand: "orly",
       // hold the 28 colors
       finalPainting: {},
