@@ -26,6 +26,7 @@ class SectionTwo extends Component {
                 <h1>You chose the brand: {this.props.chosenBrandProp}</h1>
                 <p>Choosing {this.props.chosenBrandProp} is a great idea! Personally, we love {this.props.topProductsProp}</p>
             
+                <button onClick={this.props.makeUpCallProp}>Get Your Colors!</button>
 
                 {/* <p>{this.props.brandArray[0]}</p> */
                     this.props.brandArray.map((product) => { 
@@ -61,7 +62,7 @@ class SectionTwo extends Component {
                     })
                 }
                 
-                <button onClick={this.props.makeUpCallProp}>Get Your Colors!</button>
+                
 ​
             </section>
         )
