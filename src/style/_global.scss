@@ -1,0 +1,97 @@
+$platinum: #ebe8e9;
+$pink: #f2ddd2;
+$gold: #d6ccad;
+$lightgreen: #8fcda3;
+$darkgreen: #0e3e36;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+img {
+    width: 100%;
+}
+
+html {
+    font-size: 62.5%;
+    height: 100vh;
+}
+
+.hidden { 
+    display:none; 
+}
+
+.wrapper {
+    width: 80%;
+    max-width: 1920px;
+    margin: 0 auto;
+    @media (max-width: 800px) {
+        width: 90%;
+    }
+}
+
+@mixin flexer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+// @mixin heading-1 {
+//     font-family: 'Merienda One', cursive;
+//     font-size: 6rem;
+//     line-height: 7rem;
+//     text-transform: uppercase;
+//     text-align: center;
+//     @media (max-width: 800px) {
+//         font-size: 4rem;
+//         line-height: 5rem;
+//     }
+// }
+
+// @mixin heading-2 {
+//     font-family: 'Merienda One', cursive;
+//     font-size: 3rem;
+//     @media (max-width: 800px) {
+//         font-size: 2.5rem;
+//         line-height: 3.5rem;
+//         text-align: center;
+//     }
+// }
+
+// @mixin heading-3 {
+//     font-family: 'Kalam', cursive;
+//     font-size: 2rem;
+//     text-transform: uppercase;
+// }
+
+// @mixin text-1 {
+//     font-family: 'Enriqueta', serif;
+//     font-size: 1.8rem;
+//     line-height: 2.7rem;
+//     color: $black;
+//     @media (max-width: 600px) {
+//         font-size: 1.4rem;
+//         line-height: 2rem;
+//     }
+// }
+
+// @mixin text-2 {
+//     font-family: 'Enriqueta', serif;
+//     font-size: 1.6rem;
+//     line-height: 1.8rem;
+//     color: $black;
+//     @media (max-width: 1060px) {
+//         font-size: 1.4rem;
+//         line-height: 1.5rem;
+//     }
+//     @media (max-width: 550px) {
+//         font-size: 1.0rem;
+//         line-height: 1.0rem;
+//     }
+// }

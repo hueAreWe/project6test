@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './App.css';
+import './App.scss';
 import SectionOne from './SectionOne';
 import SectionTwo from './SectionTwo';
 import SectionThree from './SectionThree';
@@ -15,7 +15,7 @@ class App extends Component{
       showSectionThree : true,
       chosenBrand: '',
       // hold the 28 colours
-      paintingColor: '#9C7667',
+      paintingColor: '#FBF6E1',
       finalPainting: {},
       chosenColour : '',
       top3Products : [],
