@@ -2,20 +2,7 @@
   text-align: center;
 }
 
-img {
-  width: 100%;
-}
 
-.image {
-  width: 500px
-}
-
-.individualPainting {
-  display: flex;
-  /* justify-content: center; */
-  flex-direction: column;
-  align-items: center;
-}
 .App-logo {
   height: 40vmin;
 }
@@ -34,3 +21,4 @@ img {
 .App-link {
   color: #09d3ac;
 }
+

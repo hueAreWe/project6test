@@ -142,9 +142,13 @@ class SectionOne extends Component {
 render() {
     return (
         <div className="sectionOne">
-            <h1>Hue Are You?</h1>
+            <div className="title">
+                <div className="titleText">
+                	<h1>Hue <span className="h1">Are You</span></h1>
+                </div>
+            </div>
             <form action="">
-                <label htmlFor="searchBar">Enter your favourite brand</label>
+                <label htmlFor="searchBar" className="visuallyHidden">Enter your favourite brand</label>
                     {this.state.errorMessage !== "" ? <div>{this.state.errorMessage}</div> : ""}
                 <input 
                     type="search" 
@@ -154,7 +158,7 @@ render() {
                     value={this.state.searchValue}
                 >
                 </input>
-                <button onClick={this.handleSubmit}>
+                <button onClick={this.handleSubmit} className="visuallyHidden">
                     Submit
                 </button>
             </form>
