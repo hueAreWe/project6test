@@ -13,7 +13,7 @@ class App extends Component {
       showSectionOne: true,
       showSectionTwo: true,
       showSectionThree: false,
-      paintingColor: "",
+      paintingColor: "red",
       chosenBrand: "orly",
       // hold the 28 colors
       finalPainting: {},
@@ -173,16 +173,33 @@ class App extends Component {
   // }
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// the chosenbrand handler
+  chosenBrandHandler = (b) => {
+    this.setState({ 
+      chosenBrand: b,
+      showSectionTwo: true
+    });
+  }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
   render() {
     return (
       <div className="App">
-        <SectionOne />
-        {
+      
+      
+        {/* passing down handler to sectionone */}
+        <SectionOne chosenBrandHandler={this.chosenBrandHandler} />
+        {/* show the brand user picked */}
+        <p>You've picked {this.state.chosenBrand}</p>
+        {/* ----------------------------------------------------------------- */}
+
+        { 
           this.state.showSectionTwo === true
-            ? (
-
-              <SectionTwo storeColor={this.storeColor} brandArray={this.state.brandArray} makeUpCallProp={this.makeUpCall} chosenBrandProp={this.state.chosenBrand} topProductsProp={this.state.topProducts} colorsArrayProp={this.state.colorsArray} productColorsProp={this.appendBrandInfo} productImageProp={this.state.productImage} productPriceProp={this.state.productPrice} />
-
+          ?( 
+            
+            <SectionTwo storeColor={this.storeColor} brandArray={this.state.brandArray} makeUpCallProp={this.makeUpCall} chosenBrandProp={this.state.chosenBrand} topProductsProp={this.state.topProducts} colorsArrayProp={this.state.colorsArray} productColorsProp={this.appendBrandInfo} productImageProp={this.state.productImage} productPriceProp={this.state.productPrice} />
             )
             : null
         }
@@ -190,9 +207,9 @@ class App extends Component {
           (
             this.state.showSectionThree === true
               ?
-
-              (<SectionThree />)
-              :
+///////////////////////////////////////////////////////////////////////////////////////
+              (<SectionThree paintingColorProp={this.state.paintingColor}/>)
+            :
               (null)
           )
 
@@ -201,6 +218,8 @@ class App extends Component {
     );
 
   }
+
+  
 }
 
 export default App;
