@@ -141,6 +141,8 @@ class SectionThree extends Component {
                                     <li className="artwork wrapper">
                                             <Tilt tiltMaxAngleX="7" tiltMaxAngleY="7">
                                         <div className="frame">
+                                    <div key={i.id}>
+                                        <div className="image">
                                             <img src={i.webImage.url} alt={i.title} />
                                         </div>
                                         </Tilt>
