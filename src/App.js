@@ -11,10 +11,11 @@ class App extends Component{
     this.state = {
       userInput: '',
       showSectionOne: true,
-      showSectionTwo : true,
+      showSectionTwo : false,
       showSectionThree : true,
       chosenBrand: '',
       // hold the 28 colours
+      paintingColor: '#000000',
       finalPainting: {},
       chosenColour : '',
       top3Products : [],
@@ -38,25 +39,25 @@ class App extends Component{
 
 
   componentDidMount() {
-    axios({
-      method: 'GET',
-      url: 'http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline',
-      dataResponse: 'json'
-    })
-      .then((makeupData) => {
-        // console.log('makeup api results', makeupData.data.map((peepee) => {
-        // return peepee.product_colors
-        //         })
-        // )
-        const colorFinal = makeupData.data[12].product_colors[11].hex_value;
+    // axios({
+    //   method: 'GET',
+    //   url: 'http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline',
+    //   dataResponse: 'json'
+    // })
+    //   .then((makeupData) => {
+    //     // console.log('makeup api results', makeupData.data.map((peepee) => {
+    //     // return peepee.product_colors
+    //     //         })
+    //     // )
+    //     const colorFinal = makeupData.data[12].product_colors[11].hex_value;
 
 
-        const colors = {}
-        console.log(colors);
-        console.log(colorFinal);
-      })
+    //     const colors = {}
+    //     console.log(colors);
+    //     console.log(colorFinal);
+    //   })
 
-      
+    // whenever chosenBrand !=='' (empty string), run section two
 
 
 
@@ -91,14 +92,33 @@ class App extends Component{
       // }
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// the chosenbrand handler
+  chosenBrandHandler = (b) => {
+    this.setState({ 
+      chosenBrand: b,
+      showSectionTwo: true
+    });
+  }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
   render() {
     return (
       <div className="App">
-        <SectionOne />
+
+        {/* ----------------------------------------------------------------- */}
+        
+        {/* passing down handler to sectionone */}
+        <SectionOne chosenBrandHandler={this.chosenBrandHandler} />
+        {/* show the brand user picked */}
+        <p>You've picked {this.state.chosenBrand}</p>
+        {/* ----------------------------------------------------------------- */}
+
         { 
           this.state.showSectionTwo === true
           ?( 
-
+            
             <SectionTwo />
             )
           :null
@@ -107,8 +127,8 @@ class App extends Component{
           (
             this.state.showSectionThree === true
               ?
-
-              (<SectionThree />)
+///////////////////////////////////////////////////////////////////////////////////////
+              (<SectionThree paintingColorProp={this.state.paintingColor}/>)
             :
               (null)
           )
@@ -118,6 +138,8 @@ class App extends Component{
     );
     
   }
+
+  
 }
 
 export default App;
