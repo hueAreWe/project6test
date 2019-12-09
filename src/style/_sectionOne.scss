@@ -1,7 +1,7 @@
 
 .sectionOne {
   min-height: 100vh;
-  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8)), url('../image/sectionOneBack.jpg');
+  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0, 0.9)), url('../image/sectionOneBack.jpg');
   background-position: bottom;
   background-size: cover;
   background-repeat: no-repeat;
@@ -9,6 +9,7 @@
   flex-direction: column;
   align-items: center;
   position: relative;
+  color: $platinum;
 }
 
 .sectionOne form {
@@ -18,22 +19,19 @@
 }
 
 .brandsContainer {
-  width: 100%;
+  width: 95%;
   padding: 10px 5%;
-  /* background: rgba(14, 62, 54, 0.5); */
 }
 
 .brandsContainer button {
   background: rgba(14, 62, 54, 1);
-  /* color: #ebe8e9; */
-  color: #fff;
-  /* background: rgba(0, 0, 0, 0.8); */
+  color: $platinum;
   letter-spacing: 2px;
   display: inline-block;
-  font-size: 16px;
+  font-size: 1.8rem;
   font-weight: bold;
-  margin: 5px;
-  border: rgba(14, 62, 54, 1) solid 3px;
+  margin: 8px;
+  border: $platinum solid 3px;
   border-radius: 2px;
   border-top-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -42,33 +40,48 @@
   font-family: 'Muli', sans-serif;
 }
 
+.brandsContainer button:hover,
+.brandsContainer button:focus {
+  border: rgba(14, 62, 54, 1) solid 3px;
+  color: rgba(143, 205, 163, 1);
+}
+
 
 img {
   width: 100%;
 }
 
-.image {
-  width: 500px
-}
-
-.individualPainting {
-  display: flex;
-  /* justify-content: center; */
-  flex-direction: column;
-  align-items: center;
-}
-
 input[type="search"] {
   background-color: rgba(14, 62, 54, 0.8);
   border: none;
-  border-bottom: 2px solid #ebe8e9;
-  font-size: 28px;
-  color: #ebe8e9;
+  border: 3px solid $platinum;
+  border-image: linear-gradient(0deg, rgba(14, 62, 54, 0.8), rgba(143, 205, 163, 1), rgba(255,255,255,1)) 1;
+  font-size: 2.8rem;
+  color: $platinum;
   padding: 8px 15px;
-  /* margin-bottom: -20px; */
-  margin-top: -120px;
+  position: relative;
+  top: -50px;
 }
 
+button.submitButton:focus { 
+  position: absolute; 
+  width: 1px; 
+  height: 1px; 
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(00 0 0);
+  overflow: hidden;
+}
+
+.errorMessage {
+  text-align: center;
+  font-size: 2.2rem;
+  position: relative;
+  top: -20px;
+}
 
 .title {
   width: 100%;
@@ -82,12 +95,11 @@ input[type="search"] {
   background-size: contain;
   margin-top: 25px;
   margin-right: 50px;
-  padding: 35px 35px 90px 10px;
+  padding: 30px 30px 85px 5px;
 }
 .title h1 {
   font-family: 'Monoton', cursive;
-  font-size: 160px;
-  color: #ebe8e9;
+  font-size: 155px;
   font-weight: normal;
   text-transform: uppercase;
   position: relative;
@@ -101,7 +113,7 @@ input[type="search"] {
 
 .h1 {
   display: block;
-  font-size: 25px;
+  font-size: 28px;
   transform: rotate(90deg);
   position: absolute;
   right: -130px;

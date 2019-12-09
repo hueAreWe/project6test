@@ -110,10 +110,10 @@ class App extends Component {
     })
   } 
   
-  makeUpCall = () => {
+  makeUpCall = (b) => {
     axios({
       method: 'GET',
-      url: `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${this.state.chosenBrand}`,
+      url: `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${b}`,
       dataResponse: 'json'
     })
       .then((makeUpData) => {
@@ -181,6 +181,7 @@ class App extends Component {
       chosenBrand: b,
       showSectionTwo: true
     });
+    this.makeUpCall(b)
   }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
