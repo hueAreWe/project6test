@@ -145,8 +145,10 @@ class App extends Component {
 
             this.setState({
               productImage: products.image_link,
-              productPrice: products.productPrice
+              productPrice: "$" + Math.floor(parseInt(products.price))
             })
+
+            
 
           }
         })

@@ -8,6 +8,17 @@ class SectionTwo extends Component {
         }
     } 
 
+    componentDidMount() {
+    
+//         document.addEventListener('DOMContentLoaded', () => {
+
+//             const elems = document.querySelectorAll('.carousel');
+
+//             const instances = M.Carousel.init(elems, options);
+//         });
+}
+
+
     render() {
         return (
             <section className="sectionTwo">
@@ -21,19 +32,28 @@ class SectionTwo extends Component {
                         const productName = product.slice(-1)[0]
                         
                         return (
-                            <div>
-                                <div className="productInfo">
+                            <div className="productInfo wrapper">
+                                <div className="makeUpInfo">
+                                    <div className="makeUpDetails">
                                     <h3>{productName}</h3>
                                     <h4>{this.props.productPriceProp}</h4>
-
+                                    </div>
+                                    <div className="makeUpImg">
+                                    <img src={this.props.productImageProp} alt={`${this.props.chosenBrandProp}'s ${productName}`} />
+                                    </div>
                                 </div>
-                                <button className="colorButton" onClick={this.props.storeColor} value={product[0].hex}>{product[0].hex}</button>
-                                <button className="colorButton" onClick={this.props.storeColor} value={product[1].hex}>{product[1].hex}</button>
-                                <button className="colorButton" onClick={this.props.storeColor} value={product[2].hex}>{product[2].hex}</button>
-                                <button className="colorButton" onClick={this.props.storeColor} value={product[3].hex}>{product[3].hex}</button>
-                                <button className="colorButton" onClick={this.props.storeColor} value={product[4].hex}>{product[4].hex}</button>
-                                <button className="colorButton" onClick={this.props.storeColor} value={product[5].hex}>{product[5].hex}</button>
-                                <button className="colorButton" onClick={this.props.storeColor} value={product[6].hex}>{product[6].hex}</button>
+                                
+                                <div className="makeUpColors">
+
+                                
+                                <button className="colorButton" style={{background: product[0].hex}} onClick={this.props.storeColor} value={product[0].hex}>{product[0].hex}</button>
+                                <button className="colorButton" style={{background: product[1].hex}} onClick={this.props.storeColor} value={product[1].hex}>{product[1].hex}</button>
+                                <button className="colorButton" style={{background: product[2].hex}} onClick={this.props.storeColor} value={product[2].hex}>{product[2].hex}</button>
+                                <button className="colorButton" style={{background: product[3].hex}} onClick={this.props.storeColor} value={product[3].hex}>{product[3].hex}</button>
+                                <button className="colorButton" style={{background: product[4].hex}} onClick={this.props.storeColor} value={product[4].hex}>{product[4].hex}</button>
+                                <button className="colorButton" style={{background: product[5].hex}} onClick={this.props.storeColor} value={product[5].hex}>{product[5].hex}</button>
+                                <button className="colorButton" style={{ background: product[6].hex }} onClick={this.props.storeColor} value={product[6].hex}>{product[6].hex}</button>
+                                    </div>
                             </div>
                         )
                         
