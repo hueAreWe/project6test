@@ -1,0 +1,110 @@
+
+.sectionOne {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.8)), url('../image/sectionOneBack.jpg');
+  background-position: bottom;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.sectionOne form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.brandsContainer {
+  width: 100%;
+  padding: 10px 5%;
+  /* background: rgba(14, 62, 54, 0.5); */
+}
+
+.brandsContainer button {
+  background: rgba(14, 62, 54, 1);
+  /* color: #ebe8e9; */
+  color: #fff;
+  /* background: rgba(0, 0, 0, 0.8); */
+  letter-spacing: 2px;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 5px;
+  border: rgba(14, 62, 54, 1) solid 3px;
+  border-radius: 2px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  text-transform: capitalize;
+  padding: 6px 11px;
+  font-family: 'Muli', sans-serif;
+}
+
+
+img {
+  width: 100%;
+}
+
+.image {
+  width: 500px
+}
+
+.individualPainting {
+  display: flex;
+  /* justify-content: center; */
+  flex-direction: column;
+  align-items: center;
+}
+
+input[type="search"] {
+  background: rgba(14, 62, 54, 0.8);
+  border: none;
+  border-bottom: 2px solid #ebe8e9;
+  font-size: 28px;
+  color: #ebe8e9;
+  padding: 8px 15px;
+  /* margin-bottom: -20px; */
+  margin-top: -120px;
+}
+
+
+.title {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+.titleText {
+  background: url("../image/title-02.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-top: 25px;
+  margin-right: 50px;
+  padding: 35px 35px 90px 10px;
+}
+.title h1 {
+  font-family: 'Monoton', cursive;
+  font-size: 160px;
+  color: #ebe8e9;
+  font-weight: normal;
+  text-transform: uppercase;
+  position: relative;
+  line-height: 1;
+  padding: 40px 10px;
+  letter-spacing: 5px;
+  border-width: 5px;
+  border-style: solid;
+  border-image: linear-gradient(-30deg, rgba(14, 62, 54, 0.8), rgba(143, 205, 163, 1), rgba(255,255,255,1)) 1;
+}
+
+.h1 {
+  display: block;
+  font-size: 25px;
+  transform: rotate(90deg);
+  position: absolute;
+  right: -130px;
+  bottom: 50%;
+  line-height: 0;
+}
