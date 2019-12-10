@@ -309,6 +309,7 @@ html {
   border: none;
   -webkit-box-shadow: inset -1px 5px 15px -1px rgba(0, 0, 0, 0.67);
           box-shadow: inset -1px 5px 15px -1px rgba(0, 0, 0, 0.67);
+  border: 2px solid white;
 }
 
 .sectionOne {

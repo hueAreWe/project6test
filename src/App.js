@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.scss';
-import './App.css';
+// import './App.css';
 import SectionOne from './SectionOne';
 import SectionTwo from './SectionTwo';
 import SectionThree from './SectionThree';
@@ -196,7 +196,9 @@ class App extends Component {
       chosenBrand: b,
       showSectionTwo: true
     });
-    this.makeUpCall(b)
+=======
+    this.makeUpCall(b);
+
   }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -213,7 +215,7 @@ class App extends Component {
           this.state.showSectionTwo === true
           ?( 
             
-            <SectionTwo storeColor={this.storeColor} brandArray={this.state.brandArray} makeUpCallProp={this.makeUpCall} chosenBrandProp={this.state.chosenBrand} topProductsProp={this.state.topProducts} colorsArrayProp={this.state.colorsArray} productColorsProp={this.appendBrandInfo} productImageProp={this.state.productImage} productPriceProp={this.state.productPrice} />
+            <SectionTwo storeColor={this.storeColor} brandArray={this.state.brandArray} chosenBrandProp={this.state.chosenBrand} topProductsProp={this.state.topProducts} colorsArrayProp={this.state.colorsArray} productColorsProp={this.appendBrandInfo} productImageProp={this.state.productImage} productPriceProp={this.state.productPrice} />
             )
             : null
         }
