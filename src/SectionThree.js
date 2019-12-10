@@ -3,13 +3,28 @@ import axios from 'axios';
 import Tilt from 'react-parallax-tilt';
 // import { ParallaxProvider } from 'react-scroll-parallax';
 // import { Parallax } from 'react-scroll-parallax';
+import makeupPaintPalette from './image/makeupPaintPalette.png';
 import easelPainting from './image/easelPainting.gif';
 
 class SectionThree extends Component {
     constructor(){
         super()
         this.state = {
-            paintingArray: undefined
+            paintingArray: undefined,
+            normalizedColors: {
+                darkGreen: "#367614",
+                pink: "#DF4C93",
+                brown: "#B35A1F",
+                orange: "#E09714",
+                lightBlue: "#B5BFCC",
+                black: "#000000",
+                darkYellow: "#E0CC91",
+                turqoise: "#62AD77",
+                darkBlue: "#2F4F4F",
+                lightPink: "#F6ECF3",
+                lightYellow: "#FBF6E1",
+                darkGray: "#737C84",
+            }
         }
     }
 
@@ -46,13 +61,20 @@ class SectionThree extends Component {
     getArt = (e) => {
         e.preventDefault()
 
+        const nearestColor = require('nearest-color').from(this.state.normalizedColors);
+
+        let matchedColor = nearestColor(this.props.paintingColorProp);
+        console.log(matchedColor)
+
+
+
         axios({
             method: 'GET',
             url: `https://www.rijksmuseum.nl/api/en/collection?`,
             dataResponse: 'json',
             params: {
                 key: 'e2KwL8qU',
-                "f.normalized32Colors.hex": this.props.paintingColorProp,
+                "f.normalized32Colors.hex": matchedColor.value,
                 type: 'painting',
                 imgonly: true,
                 // s: 'relevance',
@@ -88,12 +110,32 @@ class SectionThree extends Component {
             })
     }
 
+    storeColor = (e) => {
+        console.log(e.target.value)
+        this.setState({
+            chosenColor: e.target.value,
+        })
+    } 
+
+
     render() {
 
         return (
             <div className='sectionThree'>
-                <h1>Section Three</h1>
-                <button onClick={this.getArt}>Generate</button>
+                
+                <section className="makeArt">
+                    <div className="generateContainer" >
+                    <div>
+                        <h2>Your Color Choice </h2>
+                        <h3 style={{ background: this.props.paintingColorProp }}>{this.props.paintingColorProp}</h3>
+                    </div>
+                    
+                    
+                    <img src={makeupPaintPalette} alt="a paint palette surronded with make up products"/>
+                    <button onClick={this.getArt}>Let's Make Art</button>
+                    </div>
+                </section>  
+
                 {
                     (
                         this.state.paintingArray === true

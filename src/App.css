@@ -232,7 +232,7 @@ html {
 }
 
 .sectionTwo {
-  background-image: url(../image/brushes.jpg);
+  background-image: url("./image/brushes.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -271,7 +271,7 @@ html {
 }
 
 .makeUpInfo {
-  background-image: url(../image/productTop.png);
+  background-image: url("./image/productTop.png");
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
@@ -293,7 +293,7 @@ html {
 }
 
 .makeUpColors {
-  background-image: url(../image/productBottom.png);
+  background-image: url("./image/productBottom.png");
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
@@ -314,8 +314,8 @@ html {
 
 .sectionOne {
   min-height: 100vh;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.8))), url("../image/sectionOneBack.jpg");
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)), url("../image/sectionOneBack.jpg");
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.8))), url("./image/sectionOneBack.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)), url("./image/sectionOneBack.jpg");
   background-position: bottom;
   background-size: cover;
   background-repeat: no-repeat;
@@ -416,7 +416,7 @@ input[type="search"] {
 }
 
 .titleText {
-  background: url("../image/title-02.png");
+  background: url("./image/title-02.png");
   background-repeat: no-repeat;
   background-size: contain;
   margin-top: 25px;
@@ -607,6 +607,140 @@ input[type="search"] {
   .info h3 {
     font-size: 1.5rem;
   }
+}
+
+.paintingGallery {
+  width: 100%;
+  background: linear-gradient(130deg, #0e3e36, #041815);
+}
+
+.paintingGallery .galleryBackground {
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  padding: 10vh 0;
+  background-image: url("./image/backgroundImg.png");
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.artworkGallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 95%;
+  margin: 0 5px;
+}
+
+.artworkGallery .galleryImage {
+  border: solid 2px;
+  border-bottom-color: #ffe;
+  border-left-color: #eed;
+  border-right-color: #eed;
+  border-top-color: #ccb;
+  position: relative;
+}
+
+.artworkGallery .galleryImage img {
+  max-height: 200px;
+}
+
+.artworkGallery .frame {
+  background-color: #ddc;
+  border: solid 3vmin #eee;
+  border-bottom-color: #fff;
+  border-left-color: #eee;
+  border-radius: 1px;
+  border-right-color: #eee;
+  border-top-color: #ddd;
+  -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25) inset, 0 5px 10px 5px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25) inset, 0 5px 10px 5px rgba(0, 0, 0, 0.25);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: inline-block;
+  margin-top: 10vh;
+  padding: 3vmin;
+  position: relative;
+  text-align: center;
+  max-width: 33vw;
+}
+
+.artworkGallery .frame:before {
+  border-radius: 2px;
+  bottom: -2vmin;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25) inset;
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25) inset;
+  content: "";
+  left: -2vmin;
+  position: absolute;
+  right: -2vmin;
+  top: -2vmin;
+}
+
+.artworkGallery .frame:after {
+  border-radius: 2px;
+  bottom: -2.5vmin;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+  content: "";
+  left: -2.5vmin;
+  position: absolute;
+  right: -2.5vmin;
+  top: -2.5vmin;
+}
+
+.artworkGallery .infoGallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 80%;
+  max-width: 500px;
+  bottom: 0;
+  padding: 5px;
+  display: none;
+}
+
+.artworkGallery .infoGallery h2 {
+  margin: 0;
+  font-family: Baskervville;
+  color: #ebe8e9;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.artworkGallery .infoGallery h3 {
+  font-family: Baskervville;
+  color: #ebe8e9;
+  margin-top: 5px;
+  padding: 2px 0;
+  font-size: 1.5rem;
+  text-align: center;
+  border-top: #d6ccad solid 1px;
 }
 
 body {

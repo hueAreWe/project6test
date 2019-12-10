@@ -7,7 +7,8 @@
         "style/_global.scss",
         "style/_sectionTwo.scss",
         "style/_sectionOne.scss",
-        "style/_sectionThree.scss"
+        "style/_sectionThree.scss",
+        "style/_sectionGallery.scss"
     ],
     "names": [],
     "file": "App.css"
