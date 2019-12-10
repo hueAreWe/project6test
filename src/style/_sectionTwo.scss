@@ -1,0 +1,82 @@
+@import url('<link href=“https://fonts.googleapis.com/css?family=Baskervville|Lobster|Monoton|Muli&display=swap” rel=“stylesheet”>');
+
+.App {
+    text-align: center;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+.wrapper{
+    max-width: 1240px;
+    width: 45%;
+    margin: 0 auto;
+}
+
+.sectionTwo{
+    background-image: url(../image/brushes.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    color: white;
+    position: relative;
+}
+
+.sectionTwo h1{
+    font-family: 'Lobster', cursive;
+}
+.sectionTwo h3{
+    font-size: 3rem;
+}
+
+.arrowButton{
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.arrowLeft{
+    transform: rotate(90deg);
+    top: 20%;
+    left: 24%;
+}
+
+.arrowRight{
+    transform: rotate(-90deg);
+    top: 20%;
+    right: 24%;
+}
+
+.makeUpInfo{
+    background-image: url(../image/productTop.png);
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    height: 36vh;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    color: green;
+}
+
+.makeUpColors{
+background-image: url(../image/productBottom.png);
+background-size: contain;
+background-position: center center;
+background-repeat: no-repeat;
+height: 40vh;
+padding-top: 67px;
+}
+
+.colorButton{
+    width: 70px;
+    height: 220px;
+    border-radius: 20px;
+    margin: 0 5px;
+    border: none;
+    box-shadow: inset -1px 5px 15px -1px rgba(0,0,0,0.67);
+}
