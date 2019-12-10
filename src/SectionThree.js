@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import firebase from './firebase';
 import Tilt from 'react-parallax-tilt';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBookmark } from '@fortawesome/free-solid-svg-icons'
 // import { ParallaxProvider } from 'react-scroll-parallax';
 // import { Parallax } from 'react-scroll-parallax';
 import makeupPaintPalette from './image/makeupPaintPalette.png';
@@ -107,6 +110,8 @@ class SectionThree extends Component {
 
                 }, 1800);
 
+
+
             })
     }
 
@@ -116,6 +121,23 @@ class SectionThree extends Component {
             chosenColor: e.target.value,
         })
     } 
+
+    saveGallery = (e) => {
+
+        const dbRef = firebase.database().ref();
+
+        console.log(this.state.paintingArray[0])
+
+        const paintingObject = {
+            paintingTitle: this.state.paintingArray[0].title,
+            paintingImage: this.state.paintingArray[0].webImage.url,
+            paintingArtist: this.state.paintingArray[0].principalOrFirstMaker,
+        }
+
+        dbRef.child('publicGallery').push(paintingObject);
+
+
+    }
 
 
     render() {
@@ -130,8 +152,7 @@ class SectionThree extends Component {
                         <h3 style={{ background: this.props.paintingColorProp }}>{this.props.paintingColorProp}</h3>
                     </div>
                     
-                    
-                    <img src={makeupPaintPalette} alt="a paint palette surronded with make up products"/>
+                    <img src={makeupPaintPalette} alt="a paint palette surronded with make up products" onClick={this.getArt}/>
                     <button onClick={this.getArt}>Let's Make Art</button>
                     </div>
                 </section>  
@@ -176,6 +197,9 @@ class SectionThree extends Component {
                                                 <h2>{this.state.paintingArray[0].title}</h2>
                                                 <h3>{this.state.paintingArray[0].principalOrFirstMaker}</h3>
                                             </div>
+                                            <button className="saveIt" onClick={this.saveGallery}>
+                                                <FontAwesomeIcon className="bookmark" icon={faBookmark}/> Save It!
+                                            </button>
                                         </li>
                                 
                                 {/* {this.state.paintingArray.map((i) => {
