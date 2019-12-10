@@ -46,7 +46,6 @@
   color: rgba(143, 205, 163, 1);
 }
 
-
 img {
   width: 100%;
 }
@@ -63,6 +62,9 @@ input[type="search"] {
   top: -50px;
 }
 
+input[type="search"]:focus {
+  background-color: rgba(14, 62, 54, 0.4);
+}
 button.submitButton:focus { 
   position: absolute; 
   width: 1px; 
@@ -109,6 +111,7 @@ button.submitButton:focus {
   border-width: 5px;
   border-style: solid;
   border-image: linear-gradient(-30deg, rgba(14, 62, 54, 0.8), rgba(143, 205, 163, 1), rgba(255,255,255,1)) 1;
+  text-shadow: 5px 5px 5px $darkgreen;
 }
 
 .h1 {

@@ -15,10 +15,10 @@ class App extends Component {
     this.state = {
       userInput: "",
       showSectionOne: true,
-      showSectionTwo: true,
-      showSectionThree: false,
-      paintingColor: "red",
-      chosenBrand: "nyx",
+      showSectionTwo: false,
+      showSectionThree: true,
+      paintingColor: "#367614",
+      chosenBrand: "orly",
       // hold the 28 colors
       finalPainting: {},
       chosenColor: "",
@@ -27,7 +27,7 @@ class App extends Component {
       brandObject: {},
       brandArray: [],
       productImage: '',
-      productPrice: '',
+      
       colorsArray2: {
         1: "#737C84",
         2: "#FBF6E1",
@@ -182,19 +182,13 @@ class App extends Component {
             })
 
             arrayOfProducts.push(products.name);
-
             
-            
-            // if (type)
-
             brandInfo.push(newColorArray);
             
 
             this.setState({
               productImage: products.image_link,
-              productPrice: "$" + Math.floor(parseInt(products.price))
             })
-
             
 
           }
@@ -247,6 +241,7 @@ class App extends Component {
               () => {
                 return (
                   <div> 
+                  <Link to='/gallery' className="galleryLink shimmer">Gallery</Link>
                     {
                       this.state.showSectionOne === true
                         ?
@@ -258,7 +253,7 @@ class App extends Component {
                       this.state.showSectionTwo === true
                         ? (
 
-                          <SectionTwo storeColor={this.storeColor} brandArray={this.state.brandArray} makeUpCallProp={this.makeUpCall} chosenBrandProp={this.state.chosenBrand} topProductsProp={this.state.topProducts} colorsArrayProp={this.state.colorsArray} productColorsProp={this.appendBrandInfo} productImageProp={this.state.productImage} productPriceProp={this.state.productPrice} />
+                          <SectionTwo storeColor={this.storeColor} brandArray={this.state.brandArray} makeUpCallProp={this.makeUpCall} chosenBrandProp={this.state.chosenBrand} topProductsProp={this.state.topProducts} colorsArrayProp={this.state.colorsArray} productColorsProp={this.appendBrandInfo} productImageProp={this.state.productImage} />
                         )
                         : null
                     }
@@ -267,7 +262,8 @@ class App extends Component {
                         this.state.showSectionThree === true
                           ?
                           ///////////////////////////////////////////////////////////////////////////////////////
-                          (<SectionThree paintingColorProp={this.state.paintingColor} />)
+                          // (<SectionThree paintingColorProp={this.state.paintingColor} />)
+                          (<SectionThree paintingColorProp={this.state.chosenColor} />)
                           :
                           (null)
                       )
@@ -286,7 +282,7 @@ class App extends Component {
                 )
               }
             } />
-        <Link to='/gallery'>Gallery</Link>
+        
       </div>
       </Router>
     );
