@@ -124,13 +124,13 @@ class SectionThree extends Component {
 
                                     {/* <Parallax className="parallax" y={[-20, 20]} tagOuter="figure"> */}
 
-                                        <li className="artwork wrapper">
+                                        <li className="rapper artwork ">
                                             <Tilt tiltMaxAngleX="7" tiltMaxAngleY="7">
                                                 <div className="frame">
                                                     <img src={this.state.paintingArray[0].webImage.url} alt={this.state.paintingArray[0].title} />
                                                 </div>
                                             </Tilt>
-                                            <div className="info wrapper">
+                                            <div className="rapper info ">
                                                 <h2>{this.state.paintingArray[0].title}</h2>
                                                 <h3>{this.state.paintingArray[0].principalOrFirstMaker}</h3>
                                             </div>
@@ -138,7 +138,7 @@ class SectionThree extends Component {
                                 
                                 {/* {this.state.paintingArray.map((i) => {
                                     return (
-                                    <li className="artwork wrapper">
+                                    <li className="artwork rapper">
                                             <Tilt tiltMaxAngleX="7" tiltMaxAngleY="7">
                                         <div className="frame">
                                     <div key={i.id}>
@@ -146,7 +146,7 @@ class SectionThree extends Component {
                                             <img src={i.webImage.url} alt={i.title} />
                                         </div>
                                         </Tilt>
-                                        <div className="info wrapper">
+                                        <div className="info rapper">
                                             <h2>{i.title}</h2>
                                             <h3>{i.principalOrFirstMaker}</h3>
                                         </div>

@@ -1,39 +1,12 @@
 @import './style/setup';
 @import './style/global';
 @import './style/sectionTwo';
+@import './style/sectionOne';
 @import './style/sectionThree';
 @import url('https://fonts.googleapis.com/css?family=Baskervville|Lobster|Monoton|Muli&display=swap');
 
-
-.sectionOne {
-  height: 100vh;
-  background-image: url('./image/sectionOneBack.jpg');
-  background-position: center;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+body {
+    font-family: 'Muli', sans-serif;
 }
 
-.sectionOne form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px
-}
 
-.brandsContainer {
-  width: 80%;
-}
-
-.brandsContainer button {
-  background: none;
-  display: inline-block;
-  font-size: 14px;
-  font-weight: bold;
-  margin: 5px;
-  border: rgb(232, 232, 232) outset 3px;
-  text-transform: capitalize;
-}
