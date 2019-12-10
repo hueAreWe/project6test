@@ -6,63 +6,43 @@ class SectionTwo extends Component {
         super();
         this.state = {
             color: '',
-            counter: 0,
-            // initialLoad: this.props.sectionTwoPageLoad,
         }
     } 
 
-
-    counterClickAdd = () => {
-        if (this.state.counter < (this.props.brandArray.length - 1)) {
-            this.setState({
-                counter: this.state.counter + 1
-            })
-        } else {
-            this.setState({
-                counter: 0,
-            })
-        }
+    isItInitialLoad = () => {
+        console.log('its loading')
+        this.setState({
+            initialLoad: this.props.sectionTwoPageLoad,
+        })
     }
-
-    counterClickSub = () => {
-        if (this.state.counter > 0) {
-            this.setState({
-                counter: this.state.counter - 1
-            })
-        } else {
-            this.setState({
-                counter: this.props.brandArray.length - 1,
-            })
-        }
-    }
-
     
     render() {
-        console.log(this.props.brandArray)
         return (
+            
             
             <section className="sectionTwo">
                 <h1>You chose the brand: {this.props.chosenBrandProp}</h1>
 
                 {
                     this.props.brandArray.map((product, index) => {
+                        
                         // make a function that calls upon index in the array. have the onclick function in our arrows below call upon the counterClick above, enabling counter to increase by 1 (if right arrow) or decrease by 1 (if left arrow). once done, this will increase our counter and we will compare our index to the number on the counter. if the index number is = to counter, then we will only show what is equal to counter and visually hide everything else (take that from the setup snippet)
                         
                         
                         const productName = product.slice(-2)[0]
                         const productImgLink = product.slice(-1)[0]
                     
-                        if (this.state.counter === (index)) {
+                        if (this.props.counter === (index)) {
                                 return (
                                 
                             
                                 <div>
                                     <div value={productName} className="arrowButton arrowLeft"
-                                    onClick={this.counterClickSub}>
+                                    onClick={this.props.counterClickSub}>
                                         <img src={require('./image/arrow.png')} alt="" />
                                     </div>
 
-                                    <div value={productName} className="arrowButton arrowRight" onClick={this.counterClickAdd}
+                                    <div value={productName} className="arrowButton arrowRight" onClick={this.props.counterClickAdd}
                                     >
                                         <img src={require('./image/arrow.png')} alt="" />
                                     </div>
