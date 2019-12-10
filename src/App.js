@@ -149,7 +149,7 @@ class App extends Component {
   makeUpCall = (b) => {
     axios({
       method: 'GET',
-      url: `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${b}`,
+      url: `https://makeup-api.herokuapp.com/api/v1/products.json?brand=${b}`,
       dataResponse: 'json'
     })
       .then((makeUpData) => {
@@ -237,7 +237,7 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
+      <Router basename="/hueareyou">
         
       <div className="App">
 
