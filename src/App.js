@@ -196,7 +196,9 @@ class App extends Component {
       chosenBrand: b,
       showSectionTwo: true
     });
+=======
     this.makeUpCall(b);
+
   }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -208,9 +210,6 @@ class App extends Component {
       
         {/* passing down handler to sectionone */}
         <SectionOne chosenBrandHandler={this.chosenBrandHandler} />
-        {/* show the brand user picked */}
-        <p>You've picked {this.state.chosenBrand}</p>
-        {/* ----------------------------------------------------------------- */}
 
         { 
           this.state.showSectionTwo === true

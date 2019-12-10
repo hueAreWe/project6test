@@ -10,62 +10,41 @@ class SectionOne extends Component {
 
             allBrands: [
                 "almay",
-                "alva",
                 "anna sui",
-                "annabelle",
                 "benefit",
                 "boosh",
                 "burt's bees",
                 "butter london",
-                "c'est moi",
                 "cargo cosmetics",
-                "china glaze",
                 "clinique",
                 "coastal classic creation",
                 "colourpop",
                 "covergirl",
-                "dalish",
                 "deciem",
                 "dior",
                 "dr. hauschka",
                 "e.l.f.",
                 "essie",
                 "fenty",
-                "glossier",
-                "green people",
                 "iman",
                 "l'oreal",
-                "lotus cosmetics usa",
-                "maia's mineral galaxy",
                 "marcelle",
                 "marienatie",
                 "maybelline",
                 "milani",
-                "mineral fusion",
                 "misa",
-                "mistura",
-                "moov",
                 "nudus",
                 "nyx",
                 "orly",
-                "pacifica",
                 "penny lane organics",
-                "physicians formula",
                 "piggy paint",
                 "pure anada",
                 "rejuva minerals",
                 "revlon",
-                "sally b's skin yummies",
                 "salon perfect",
-                "sante",
                 "sinful colours",
                 "smashbox",
-                "stila",
-                "suncoat",
-                "w3llpeople",
-                "wet n wild",
-                "zorah",
-                "zorah biocosmetiques",
+                "suncoat"
             ],
         }
     }
@@ -106,13 +85,11 @@ class SectionOne extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-
-        console.log(this.state.searchValue)
             
         if (this.state.searchValue !== "") {
         
             this.setState({
-                errorMessage: "Sorry, we cann't find your brand🤪"
+                errorMessage: "Sorry, we can't find that brand."
             })
 
             this.state.allBrands.forEach((i)=>{
@@ -128,7 +105,7 @@ class SectionOne extends Component {
 
         } else {
             this.setState({
-                errorMessage: "Please give us something!🤬"
+                errorMessage: "Please choose a brand."
             })
         }        
     }
@@ -149,7 +126,6 @@ render() {
             </div>
             <form action="">
                 <label htmlFor="searchBar" className="visuallyHidden">Enter your favourite brand</label>
-                    {this.state.errorMessage !== "" ? <div>{this.state.errorMessage}</div> : ""}
                 <input 
                     type="search" 
                     placeholder="ex: L'Oreal" 
@@ -158,10 +134,11 @@ render() {
                     value={this.state.searchValue}
                 >
                 </input>
-                <button onClick={this.handleSubmit} className="visuallyHidden">
+                <button onClick={this.handleSubmit} className="visuallyHidden submitButton">
                     Submit
                 </button>
             </form>
+            {this.state.errorMessage !== "" ? <div className="errorMessage">{this.state.errorMessage}</div> : ""}
 
             <div className="brandsContainer">
                 {this.state.filterBrand.map((i)=>{
