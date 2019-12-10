@@ -241,6 +241,7 @@ class App extends Component {
               () => {
                 return (
                   <div> 
+                  <Link to='/gallery' className="galleryLink shimmer">Gallery</Link>
                     {
                       this.state.showSectionOne === true
                         ?
@@ -281,7 +282,7 @@ class App extends Component {
                 )
               }
             } />
-        <Link to='/gallery'>Gallery</Link>
+        
       </div>
       </Router>
     );
