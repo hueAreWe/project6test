@@ -67,9 +67,8 @@ class SectionTwo extends Component {
                                             </div>
                                                 <div className="makeUpImg">
                                                 <img src={this.props.productImageProp}
-                                                                onError = "imgError(this)"  alt={`${this.props.chosenBrandProp}'s ${productName}`} />
+                                                onError = "imgError(this)"  alt={`${this.props.chosenBrandProp}'s ${productName}`} />
                                             </div>
-                                    
                                         </div>
                                 
                                         <div className="makeUpColors">
