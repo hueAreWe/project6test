@@ -1,6 +1,5 @@
 @charset "UTF-8";
-@import url("<link href=“https://fonts.googleapis.com/css?family=Baskervville|Lobster|Monoton|Muli&display=swap” rel=“stylesheet”>");
-@import url("https://fonts.googleapis.com/css?family=Baskervville|Lobster|Monoton|Muli&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Baskervville|Muli&display=swap");
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
   display: block;
 }
