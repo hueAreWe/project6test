@@ -6,64 +6,43 @@ class SectionTwo extends Component {
         super();
         this.state = {
             color: '',
-            counter: 0
         }
     } 
 
-
-    counterClickAdd = () => {
+    isItInitialLoad = () => {
+        console.log('its loading')
         this.setState({
-            counter: this.state.counter + 1
+            initialLoad: this.props.sectionTwoPageLoad,
         })
-        if (this.state.counter === this.props.brandArray.length) {
-            console.log('the lengths are now the same!!!')
-            this.setState({
-                counter: 0
-            })
-        }
-        console.log('this is the counter now after i click the arrow',this.state.counter)
     }
-
-    // counterClickSub = () => {
-    //     this.setState({
-    //         counter: this.state.counter - 1
-    //     })
-    //     if (this.state.counter === this.props.brandArray.length) {
-            
-    //         this.setState({
-    //             counter: 0
-    //         })
-    //     }
-    //     console.log('this is the counter now after i click the arrow', this.state.counter)
-    // }
-
     
     render() {
-        console.log(this.props.brandArray)
         return (
+            
             
             <section className="sectionTwo">
                 <h1>You chose the brand: {this.props.chosenBrandProp}</h1>
 
                 {
                     this.props.brandArray.map((product, index) => {
-                        // console.log('this is the brand array thingy', this.props.brandArray);
-                        console.log('indexy', index)
-                        //make a function that calls upon index in the array. have the onclick function in our arrows below call upon the counterClick above, enabling counter to increase by 1 (if right arrow) or decrease by 1 (if left arrow). once done, this will increase our counter and we will compare our index to the number on the counter. if the index number is = to counter, then we will only show what is equal to counter and visually hide everything else (take that from the setup snippet)
+                        
+                        // make a function that calls upon index in the array. have the onclick function in our arrows below call upon the counterClick above, enabling counter to increase by 1 (if right arrow) or decrease by 1 (if left arrow). once done, this will increase our counter and we will compare our index to the number on the counter. if the index number is = to counter, then we will only show what is equal to counter and visually hide everything else (take that from the setup snippet)
                         
                         
-                        const productName = product.slice(-1)[0]
-                        if (this.state.counter === index) {
+                        const productName = product.slice(-2)[0]
+                        const productImgLink = product.slice(-1)[0]
+                    
+                        if (this.props.counter === (index)) {
                                 return (
                                 
                             
                                 <div>
                                     <div value={productName} className="arrowButton arrowLeft"
-                                    onClick={this.counterClickSub}>
+                                    onClick={this.props.counterClickSub}>
                                         <img src={require('./image/arrow.png')} alt="" />
                                     </div>
 
-                                    <div value={productName} className="arrowButton arrowRight" onClick={this.counterClickAdd}
+                                    <div value={productName} className="arrowButton arrowRight" onClick={this.props.counterClickAdd}
                                     >
                                         <img src={require('./image/arrow.png')} alt="" />
                                     </div>
@@ -75,7 +54,7 @@ class SectionTwo extends Component {
                                                 
                                             </div>
                                             <div className="makeUpImg">
-                                                <img src={this.props.productImageProp} alt={`${this.props.chosenBrandProp}'s ${productName}`} />
+                                                <img src={productImgLink} alt={`${this.props.chosenBrandProp}'s ${productName}`} />
                                             </div>
                                     
                                         </div>
