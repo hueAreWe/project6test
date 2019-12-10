@@ -42,7 +42,7 @@ class Gallery extends Component {
                 <Link to='/'>Go back to Home</Link>
                 
                 {
-                this.state.paintings.map((art) => {
+                this.state.paintings.reverse().map((art) => {
                     return (
                         <div>
                             <h3>{art.paintingTitle}</h3>
