@@ -27,7 +27,7 @@ class App extends Component {
       brandObject: {},
       brandArray: [],
       productImage: '',
-      productPrice: '',
+      
       colorsArray2: {
         1: "#737C84",
         2: "#FBF6E1",
@@ -182,19 +182,13 @@ class App extends Component {
             })
 
             arrayOfProducts.push(products.name);
-
             
-            
-            // if (type)
-
             brandInfo.push(newColorArray);
             
 
             this.setState({
               productImage: products.image_link,
-              productPrice: "$" + Math.floor(parseInt(products.price))
             })
-
             
 
           }
@@ -258,7 +252,7 @@ class App extends Component {
                       this.state.showSectionTwo === true
                         ? (
 
-                          <SectionTwo storeColor={this.storeColor} brandArray={this.state.brandArray} makeUpCallProp={this.makeUpCall} chosenBrandProp={this.state.chosenBrand} topProductsProp={this.state.topProducts} colorsArrayProp={this.state.colorsArray} productColorsProp={this.appendBrandInfo} productImageProp={this.state.productImage} productPriceProp={this.state.productPrice} />
+                          <SectionTwo storeColor={this.storeColor} brandArray={this.state.brandArray} makeUpCallProp={this.makeUpCall} chosenBrandProp={this.state.chosenBrand} topProductsProp={this.state.topProducts} colorsArrayProp={this.state.colorsArray} productColorsProp={this.appendBrandInfo} productImageProp={this.state.productImage} />
                         )
                         : null
                     }
