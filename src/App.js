@@ -15,9 +15,9 @@ class App extends Component {
     this.state = {
       userInput: "",
       showSectionOne: true,
-      showSectionTwo: true,
+      showSectionTwo: false,
       showSectionThree: true,
-      paintingColor: "#E0CC91",
+      paintingColor: "#367614",
       chosenBrand: "orly",
       // hold the 28 colors
       finalPainting: {},
@@ -267,7 +267,8 @@ class App extends Component {
                         this.state.showSectionThree === true
                           ?
                           ///////////////////////////////////////////////////////////////////////////////////////
-                          (<SectionThree paintingColorProp={this.state.paintingColor} />)
+                          // (<SectionThree paintingColorProp={this.state.paintingColor} />)
+                          (<SectionThree paintingColorProp={this.state.chosenColor} />)
                           :
                           (null)
                       )
