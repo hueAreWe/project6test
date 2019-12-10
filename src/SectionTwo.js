@@ -10,12 +10,6 @@ class SectionTwo extends Component {
         }
     } 
 
-    // componentDidMount() {
-    //     this.setState({
-    //         counter: this.props.brandArray[0]
-    //     })
-    //     console.log('this is the thingy', this.props.brandArray)
-    // }
 
     counterClickAdd = () => {
         this.setState({
@@ -45,6 +39,7 @@ class SectionTwo extends Component {
 
     
     render() {
+        console.log(this.props.brandArray)
         return (
             
             <section className="sectionTwo">

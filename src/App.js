@@ -5,6 +5,9 @@ import './App.scss';
 import SectionOne from './SectionOne';
 import SectionTwo from './SectionTwo';
 import SectionThree from './SectionThree';
+import Gallery from './Gallery';
+import firebase from './firebase';
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -79,14 +82,66 @@ class App extends Component {
   }
 
   componentDidMount() {
-
+    const dbRef = firebase.database().ref();
+    console.log(dbRef)
+    // this.addArtToFirebase()
+    
+    
   }
+
+
+  // addArtToFirebase = (e) => {
+  //   /// note this is a test axios call to get firebase working. @steven, remove this when you move this funciton to section 3 component
+  //   axios({
+  //     method: 'GET',
+  //     url: `https://www.rijksmuseum.nl/api/en/collection?`,
+  //     dataResponse: 'json',
+  //     params: {
+  //       key: 'e2KwL8qU',
+  //       "f.normalized32Colors.hex": this.props.paintingColorProp,
+  //       type: 'painting',
+  //       imgonly: true,
+  //       // s: 'relevance',
+  //       ps: 100
+
+  //     }
+  //   })
+      // .then((data) => {
+
+      //   const dbRef = firebase.database().ref();
+
+      //   console.log(data.data.artObjects[0])
+
+      //   const paintingObject = {
+      //     paintingTitle: data.data.artObjects[2].title,
+      //     paintingImage: data.data.artObjects[2].webImage.url,
+      //     paintingArtist: data.data.artObjects[2].principalOrFirstMaker,
+      //   }
+
+      //   dbRef.child('publicGallery').push(paintingObject);
+
+      // })
+
+  // }
+
+  // changeGallery = (e) => {
+  //   console.log('gallery')
+  //   this.setState({
+  //     showSectionOne: false,
+  //     showSectionTwo: false,
+  //     showSectionThree: false,
+  //     showGallery: true,
+  //   })    
+  // }
+
+  
 
   startCarousel = (e) => {
     this.setState({
       nextProduct: e.target.value
     })
   }
+
 
   storeColor = (e) => {
     console.log(e.target.value)
@@ -183,32 +238,57 @@ class App extends Component {
 
   render() {
     return (
+      <Router>
+        
       <div className="App">
-      
-      
-        {/* passing down handler to sectionone */}
-        <SectionOne chosenBrandHandler={this.chosenBrandHandler} />
 
-        { 
-          this.state.showSectionTwo === true
-          ?( 
-            
-            <SectionTwo storeColor={this.storeColor} brandArray={this.state.brandArray} chosenBrandProp={this.state.chosenBrand} topProductsProp={this.state.topProducts} colorsArrayProp={this.state.colorsArray} productColorsProp={this.appendBrandInfo} productImageProp={this.state.productImage} productPriceProp={this.state.productPrice} />
-            )
-            : null
-        }
-        {
-          (
-            this.state.showSectionThree === true
-              ?
-///////////////////////////////////////////////////////////////////////////////////////
-              (<SectionThree paintingColorProp={this.state.paintingColor}/>)
-            :
-              (null)
-          )
+        <Route exact path='/' 
+            render={
+              () => {
+                return (
+                  <div> 
+                    {
+                      this.state.showSectionOne === true
+                        ?
+                        <SectionOne chosenBrandHandler={this.chosenBrandHandler} />
+                        :
+                        null
+                    }
+                    {
+                      this.state.showSectionTwo === true
+                        ? (
 
-        }
+                          <SectionTwo storeColor={this.storeColor} brandArray={this.state.brandArray} makeUpCallProp={this.makeUpCall} chosenBrandProp={this.state.chosenBrand} topProductsProp={this.state.topProducts} colorsArrayProp={this.state.colorsArray} productColorsProp={this.appendBrandInfo} productImageProp={this.state.productImage} productPriceProp={this.state.productPrice} />
+                        )
+                        : null
+                    }
+                    {
+                      (
+                        this.state.showSectionThree === true
+                          ?
+                          ///////////////////////////////////////////////////////////////////////////////////////
+                          (<SectionThree paintingColorProp={this.state.paintingColor} />)
+                          :
+                          (null)
+                      )
+
+                    }
+                  </div>
+                )
+              }
+            }
+        />
+          <Route path='/gallery'
+            render={
+              () => {
+                return (
+                  <Gallery galleryItemArray='[]' />
+                )
+              }
+            } />
+        <Link to='/gallery'>Gallery</Link>
       </div>
+      </Router>
     );
 
   }
