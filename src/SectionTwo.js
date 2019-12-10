@@ -177,8 +177,7 @@ class SectionTwo extends Component {
                         
                     })
                 }
-                
-                <button onClick={this.props.makeUpCallProp}>Get Your Colors!</button>
+            
 ​
             </section>
         )
