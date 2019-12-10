@@ -29,7 +29,6 @@ class App extends Component {
       counter: 0,
       productImage: '',
       sectionTwoPageLoad: false,
-      
       colorsArray2: {
         1: "#737C84",
         2: "#FBF6E1",
