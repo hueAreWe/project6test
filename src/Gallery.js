@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 // import { Route } from 'react-router-dom'
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import firebase from './firebase';
-
+import Tilt from 'react-parallax-tilt';
+import { ParallaxProvider } from 'react-scroll-parallax';
+import { Parallax } from 'react-scroll-parallax';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHome } from '@fortawesome/free-solid-svg-icons'
 
 
 class Gallery extends Component {
@@ -37,25 +41,57 @@ class Gallery extends Component {
     render() {
         // console.log(this.state.paintings)
         return (
-            <div>
-                <h2>Gallery</h2>
-                <Link to='/'>Go back to Home</Link>
-                
+            <div className='sectionGallery'>
+                <div className="galleryHeader">
+                    <h1>Gallery</h1>
+                </div>
+
+                <ParallaxProvider>
+                    <div className="paintingGallery">
+                        <div className="galleryBackground"> 
+                            <ul className="galleryWrapper">
+
+                        
                 {
-                this.state.paintings.map((art) => {
+                this.state.paintings.reverse().map((art) => {
                     return (
-                        <div>
-                            <h3>{art.paintingTitle}</h3>
-                            <h3>{art.paintingArtist}</h3>
+
+                        <Parallax className="parallax" >
+
+                        <li className="artworkGallery">
+                                <Tilt tiltMaxAngleX="5" tiltMaxAngleY="5">
+                                <div className="frame">
+                                    <div className="galleryImage">
                             <img src= {art.paintingImage} alt={`image of ${this.paintingTitle}`}/>
+
+                                </div>
                                 
-                        </div>       
+                                </div>
+                                </Tilt>
+
+                            <div className="infoGallery visuallyHidden">
+                                <h2>{art.paintingTitle}</h2>
+                                <h3>{art.paintingArtist}</h3>
+                            </div>
+                        </li>
+                        
+                        
+                        </Parallax>
                     
                     )
                 })
             
                 }
+                            </ul>
+                    </div>
+                </div>
+
+                </ParallaxProvider>
+
+                <Link to='/'><FontAwesomeIcon className="shimmer galleryLink" icon={faHome} /></Link>
+
             </div>
+            
         )
     }
 }
