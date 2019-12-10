@@ -25,6 +25,7 @@ class Gallery extends Component {
                 }
 
             }
+            console.log(paintingsArray)
             this.setState({
                 paintings: paintingsArray,
             })

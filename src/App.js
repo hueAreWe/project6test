@@ -127,21 +127,21 @@ class App extends Component {
 
   //     }
   //   })
-  //     .then((data) => {
+      // .then((data) => {
 
-  //       const dbRef = firebase.database().ref();
+      //   const dbRef = firebase.database().ref();
 
-  //       console.log(data.data.artObjects[0])
+      //   console.log(data.data.artObjects[0])
 
-  //       const paintingObject = {
-  //         paintingTitle: data.data.artObjects[2].title,
-  //         paintingImage: data.data.artObjects[2].webImage.url,
-  //         paintingArtist: data.data.artObjects[2].principalOrFirstMaker,
-  //       }
+      //   const paintingObject = {
+      //     paintingTitle: data.data.artObjects[2].title,
+      //     paintingImage: data.data.artObjects[2].webImage.url,
+      //     paintingArtist: data.data.artObjects[2].principalOrFirstMaker,
+      //   }
 
-  //       dbRef.child('publicGallery').push(paintingObject);
+      //   dbRef.child('publicGallery').push(paintingObject);
 
-  //     })
+      // })
 
   // }
 
