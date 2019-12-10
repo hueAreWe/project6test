@@ -190,13 +190,15 @@ class App extends Component {
               productImage: products.image_link,
             })
             
+            console.log('me showing the image', this.state.productImage)
 
           }
         })
         if (typeof brandInfo !== undefined ) {
 
-          brandInfo.length = 3
-          console.log(brandInfo)
+          // brandInfo.length = 3;
+          
+          
           this.setState({
             topProducts: arrayOfProducts.join("and "),
             brandArray: brandInfo,
