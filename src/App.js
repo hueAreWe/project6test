@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.scss';
-import './App.css';
+// import './App.css';
 import SectionOne from './SectionOne';
 import SectionTwo from './SectionTwo';
 import SectionThree from './SectionThree';
@@ -12,9 +12,9 @@ class App extends Component {
     super()
     this.state = {
       userInput: "",
-      showSectionOne: false,
-      showSectionTwo: false,
-      showSectionThree: false,
+      showSectionOne: true,
+      showSectionTwo: true,
+      showSectionThree: true,
       paintingColor: "#E0CC91",
       chosenBrand: "orly",
       // hold the 28 colors
@@ -206,8 +206,8 @@ class App extends Component {
       <div className="App">
       
       
-        {/* <SectionOne chosenBrandHandler={this.chosenBrandHandler} />
-        <p>You've picked {this.state.chosenBrand}</p> */}
+        <SectionOne chosenBrandHandler={this.chosenBrandHandler} />
+        <p>You've picked {this.state.chosenBrand}</p>
 
         { 
           this.state.showSectionTwo === true
@@ -222,13 +222,13 @@ class App extends Component {
             this.state.showSectionThree === true
               ?
 ///////////////////////////////////////////////////////////////////////////////////////
-              (<SectionThree paintingColorProp={this.state.paintingColor}/>)
+              (<SectionThree paintingColorPchosrop={this.state.chosenColor}/>)
             :
               (null)
           )
 
         }
-        <SectionGallery paintingColorProp={this.state.paintingColor} />
+        {/* <SectionGallery paintingColorProp={this.state.paintingColor} /> */}
       </div>
     );
 
