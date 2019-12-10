@@ -10,14 +10,8 @@ class SectionTwo extends Component {
         }
     } 
 
-    // componentDidMount() {
-    //     this.setState({
-    //         counter: this.props.brandArray[0]
-    //     })
-    //     console.log('this is the thingy', this.props.brandArray)
-    // }
 
-    counterClick = () => {
+    counterClickAdd = () => {
         this.setState({
             counter: this.state.counter + 1
         })
@@ -30,13 +24,28 @@ class SectionTwo extends Component {
         console.log('this is the counter now after i click the arrow',this.state.counter)
     }
 
+    // counterClickSub = () => {
+    //     this.setState({
+    //         counter: this.state.counter - 1
+    //     })
+    //     if (this.state.counter === this.props.brandArray.length) {
+            
+    //         this.setState({
+    //             counter: 0
+    //         })
+    //     }
+    //     console.log('this is the counter now after i click the arrow', this.state.counter)
+    // }
+
     
     render() {
+        console.log(this.props.brandArray)
         return (
             
             <section className="sectionTwo">
                 <h1>You chose the brand: {this.props.chosenBrandProp}</h1>
                 <p>Choosing {this.props.chosenBrandProp} is a great idea! Personally, we love {this.props.topProductsProp}</p>
+
 
 
                 {
@@ -52,13 +61,13 @@ class SectionTwo extends Component {
                                 
                             
                                 <div>
-                                    <div value={productName} className="arrowButton arrowLeft">
+                                    <div value={productName} className="arrowButton arrowLeft"
+                                    onClick={this.counterClickSub}>
                                         <img src={require('./image/arrow.png')} alt="" />
                                     </div>
 
-                                    <div value={productName} className="arrowButton arrowRight" onClick={this.counterClick}
+                                    <div value={productName} className="arrowButton arrowRight" onClick={this.counterClickAdd}
                                     >
-                                        {/* {console.log('this is the counter', this.state.counter)} */}
                                         <img src={require('./image/arrow.png')} alt="" />
                                     </div>
                                 
@@ -89,13 +98,12 @@ class SectionTwo extends Component {
                             return(
                                 <div className="visuallyHidden">
                                 
-                                    <div value={productName} className="arrowButton arrowLeft">
+                                    <div value={productName} className="arrowButton arrowLeft" onClick={this.counterClickSub}>
                                         <img src={require('./image/arrow.png')} alt="" />
                                     </div>
 
-                                    <div value={productName} className="arrowButton arrowRight" onClick={this.counterClick}
+                                    <div value={productName} className="arrowButton arrowRight" onClick={this.counterClickAdd}
                                     >
-                                        {/* {console.log('this is the counter', this.state.counter)} */}
                                         <img src={require('./image/arrow.png')} alt="" />
                                     </div>
                                 
@@ -165,9 +173,8 @@ class SectionTwo extends Component {
                         
                     })
                 }
-                
-                <button onClick={this.props.makeUpCallProp}>Get Your Colors!</button>
-​
+
+
             </section>
         )
     }
