@@ -63,6 +63,9 @@ input[type="search"] {
   top: -50px;
 }
 
+input[type="search"]:focus {
+  background-color: rgba(14, 62, 54, 0.4);
+}
 button.submitButton:focus { 
   position: absolute; 
   width: 1px; 
