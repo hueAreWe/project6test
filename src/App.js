@@ -15,7 +15,7 @@ class App extends Component {
       showSectionTwo: true,
       showSectionThree: false,
       paintingColor: "red",
-      chosenBrand: "orly",
+      chosenBrand: "nyx",
       // hold the 28 colors
       finalPainting: {},
       chosenColor: "",
@@ -103,6 +103,12 @@ class App extends Component {
 
   }
 
+  startCarousel = (e) => {
+    this.setState({
+      nextProduct: e.target.value
+    })
+  }
+
   storeColor = (e) => {
     console.log(e.target.value)
     this.setState({
@@ -118,10 +124,10 @@ class App extends Component {
     })
       .then((makeUpData) => {
         
-        const arrayOfProducts = []
+        const arrayOfProducts = ['product1', 'product2', 'product3']
         const brandInfo = []
         
-        makeUpData.data.map((products) => {
+        makeUpData.data.map((products, index) => {
           if (products.product_colors.length >= 7) {
             const colorArray = products.product_colors.map((color, index) => {
               if (index < 8) {
@@ -141,8 +147,14 @@ class App extends Component {
               }
             })
 
-            arrayOfProducts.push(products.name)
-            brandInfo.push(newColorArray)
+            arrayOfProducts.push(products.name);
+
+            
+            
+            // if (type)
+
+            brandInfo.push(newColorArray);
+            
 
             this.setState({
               productImage: products.image_link,
@@ -153,13 +165,16 @@ class App extends Component {
 
           }
         })
-        if (typeof brandInfo !== undefined) {
-          console.log(brandInfo[0])
+        if (typeof brandInfo !== undefined ) {
+
+          brandInfo.length = 3
+          console.log(brandInfo)
           this.setState({
             topProducts: arrayOfProducts.join("and "),
             brandArray: brandInfo,
             
           })
+
         }
 
       })
