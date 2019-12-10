@@ -196,7 +196,6 @@ class App extends Component {
       chosenBrand: b,
       showSectionTwo: true
     });
-=======
     this.makeUpCall(b);
 
   }
