@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.scss';
-import './App.css';
+// import './App.css';
 import SectionOne from './SectionOne';
 import SectionTwo from './SectionTwo';
 import SectionThree from './SectionThree';
@@ -16,10 +16,9 @@ class App extends Component {
       userInput: "",
       showSectionOne: true,
       showSectionTwo: true,
-      showSectionThree: true,
-      showGallery: false,
-      paintingColor: "#981313",
-      chosenBrand: "orly",
+      showSectionThree: false,
+      paintingColor: "red",
+      chosenBrand: "nyx",
       // hold the 28 colors
       finalPainting: {},
       chosenColor: "",
@@ -42,62 +41,41 @@ class App extends Component {
         lightTeal: "#72E6BF",
         allBrands: [
           "almay",
-          "alva",
           "anna sui",
-          "annabelle",
           "benefit",
           "boosh",
           "burt's bees",
           "butter london",
-          "c'est moi",
           "cargo cosmetics",
-          "china glaze",
           "clinique",
           "coastal classic creation",
           "colourpop",
           "covergirl",
-          "dalish",
           "deciem",
           "dior",
           "dr. hauschka",
           "e.l.f.",
           "essie",
           "fenty",
-          "glossier",
-          "green people",
           "iman",
           "l'oreal",
-          "lotus cosmetics usa",
-          "maia's mineral galaxy",
           "marcelle",
           "marienatie",
           "maybelline",
           "milani",
-          "mineral fusion",
           "misa",
-          "mistura",
-          "moov",
           "nudus",
           "nyx",
           "orly",
-          "pacifica",
           "penny lane organics",
-          "physicians formula",
           "piggy paint",
           "pure anada",
           "rejuva minerals",
           "revlon",
-          "sally b's skin yummies",
           "salon perfect",
-          "sante",
           "sinful colours",
           "smashbox",
-          "stila",
-          "suncoat",
-          "w3llpeople",
-          "wet n wild",
-          "zorah",
-          "zorah biocosmetiques",
+          "suncoat"
         ],
       }
     }
@@ -110,6 +88,7 @@ class App extends Component {
     
     
   }
+
 
   // addArtToFirebase = (e) => {
   //   /// note this is a test axios call to get firebase working. @steven, remove this when you move this funciton to section 3 component
@@ -157,6 +136,13 @@ class App extends Component {
 
   
 
+  startCarousel = (e) => {
+    this.setState({
+      nextProduct: e.target.value
+    })
+  }
+
+
   storeColor = (e) => {
     console.log(e.target.value)
     this.setState({
@@ -172,10 +158,10 @@ class App extends Component {
     })
       .then((makeUpData) => {
         
-        const arrayOfProducts = []
+        const arrayOfProducts = ['product1', 'product2', 'product3']
         const brandInfo = []
         
-        makeUpData.data.map((products) => {
+        makeUpData.data.map((products, index) => {
           if (products.product_colors.length >= 7) {
             const colorArray = products.product_colors.map((color, index) => {
               if (index < 8) {
@@ -195,8 +181,14 @@ class App extends Component {
               }
             })
 
-            arrayOfProducts.push(products.name)
-            brandInfo.push(newColorArray)
+            arrayOfProducts.push(products.name);
+
+            
+            
+            // if (type)
+
+            brandInfo.push(newColorArray);
+            
 
             this.setState({
               productImage: products.image_link,
@@ -207,13 +199,16 @@ class App extends Component {
 
           }
         })
-        if (typeof brandInfo !== undefined) {
-          console.log(brandInfo[0])
+        if (typeof brandInfo !== undefined ) {
+
+          brandInfo.length = 3
+          console.log(brandInfo)
           this.setState({
             topProducts: arrayOfProducts.join("and "),
             brandArray: brandInfo,
             
           })
+
         }
 
       })
@@ -236,6 +231,7 @@ class App extends Component {
       showSectionTwo: true
     });
     this.makeUpCall(b);
+
   }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -245,16 +241,7 @@ class App extends Component {
       <Router>
         
       <div className="App">
-        
-          
-        
-        {/* {
-          this.state.showGallery === true
-              ?
-              
-              :
-              (null)
-        } */}
+
         <Route exact path='/' 
             render={
               () => {
