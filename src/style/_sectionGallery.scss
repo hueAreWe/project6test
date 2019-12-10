@@ -1,0 +1,158 @@
+.paintingGallery {
+    width: 100%;
+    background: linear-gradient(130deg, $darkgreen, #041815);
+
+    .galleryBackground {
+        width: 100%;
+        background-position: center;
+        background-size: cover;
+        padding: 10vh 0;
+        background-image: url('../image/backgroundImg.png');
+
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+            flex-wrap: wrap;
+        // .parallax {
+        //   margin-top: 10vh;
+        // }
+    }
+}
+
+
+.artworkGallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    margin: 0 5px;
+    .galleryImage {
+        border:solid 2px;
+        border-bottom-color:#ffe;
+        border-left-color:#eed;
+        border-right-color:#eed;
+        border-top-color:#ccb;
+        position: relative;
+        img {
+        max-height:200px;
+        }    
+        
+    }
+
+    .frame {
+        background-color:#ddc;
+        border:solid 3vmin #eee;
+        border-bottom-color:#fff;
+        border-left-color:#eee;
+        border-radius:1px;
+        border-right-color:#eee;
+        border-top-color:#ddd;
+        box-shadow:0 0 5px 0 rgba(0,0,0,.25) inset, 0 5px 10px 5px rgba(0,0,0,.25);
+        box-sizing:border-box;
+        display:inline-block;
+        margin-top:10vh;
+        // height:80vh;
+        padding:3vmin;
+        position:relative;
+        text-align:center;
+                max-width: 33vw;
+
+        &:before {
+            border-radius:2px;
+            bottom:-2vmin;
+            box-shadow:0 2px 5px 0 rgba(0,0,0,.25) inset;
+            content:"";
+            left:-2vmin;
+            position:absolute;
+            right:-2vmin;
+            top:-2vmin;
+        }
+        &:after {
+            border-radius:2px;
+            bottom:-2.5vmin;
+            box-shadow: 0 2px 5px 0 rgba(0,0,0,.25);
+            content:"";
+            left:-2.5vmin;
+            position:absolute;
+            right:-2.5vmin;
+            top:-2.5vmin;
+        }
+    }
+
+    .infoGallery {
+        // display: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        // position: absolute;
+        width: 80%;
+        max-width: 500px;
+        bottom: 0;
+        // background-color: rgba(0,0,0,.5);
+        padding: 5px;
+        display: none;
+        h2 {
+            margin: 0;
+            font-family: Baskervville;
+            color: $platinum;
+            font-size: 2rem;
+            text-align: center;
+        }
+        h3 {
+            font-family: Baskervville;
+            color: $platinum;
+            margin-top: 5px;
+            padding: 2px 0;
+            font-size: 1.5rem;
+            text-align: center;
+            border-top: $gold solid 1px;
+        }
+    }
+}
+
+
+// @media (max-width: 800px) {
+
+
+//     .artwork {
+//         img {
+//             max-height: 300px;
+//         }
+//         .frame {
+//             height: auto;
+//         }
+//     }
+//     .info {
+//         h2 {
+//             font-size: 2rem;
+//         }
+//         h3 {
+//             font-size: 1.5rem;
+//         }
+//     }
+// }
+
+// @media (max-width: 600px) {
+
+//     .individualPainting {
+//         .backgroundArt {
+//             padding-bottom: 200vh;
+//             .parallax {
+//                 margin-top: 250vh;
+//             }
+//         }
+//     }
+// }
+
+// @media (max-width: 400px) {
+
+//     .individualPainting {
+//         .backgroundArt {
+//             padding-bottom: 180vh;
+//             .parallax {
+//                 margin-top: 220vh;
+//             }
+//         }
+//     }
+// }

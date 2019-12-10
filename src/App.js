@@ -5,16 +5,17 @@ import './App.css';
 import SectionOne from './SectionOne';
 import SectionTwo from './SectionTwo';
 import SectionThree from './SectionThree';
+import SectionGallery from './SectionGallery';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
       userInput: "",
-      showSectionOne: true,
-      showSectionTwo: true,
-      showSectionThree: true,
-      paintingColor: "#2F4F4F",
+      showSectionOne: false,
+      showSectionTwo: false,
+      showSectionThree: false,
+      paintingColor: "#E0CC91",
       chosenBrand: "orly",
       // hold the 28 colors
       finalPainting: {},
@@ -190,11 +191,8 @@ class App extends Component {
       <div className="App">
       
       
-        {/* passing down handler to sectionone */}
-        <SectionOne chosenBrandHandler={this.chosenBrandHandler} />
-        {/* show the brand user picked */}
-        <p>You've picked {this.state.chosenBrand}</p>
-        {/* ----------------------------------------------------------------- */}
+        {/* <SectionOne chosenBrandHandler={this.chosenBrandHandler} />
+        <p>You've picked {this.state.chosenBrand}</p> */}
 
         { 
           this.state.showSectionTwo === true
@@ -215,6 +213,7 @@ class App extends Component {
           )
 
         }
+        <SectionGallery paintingColorProp={this.state.paintingColor} />
       </div>
     );
 
