@@ -17,7 +17,7 @@ class SectionTwo extends Component {
     //     console.log('this is the thingy', this.props.brandArray)
     // }
 
-    counterClick = () => {
+    counterClickAdd = () => {
         this.setState({
             counter: this.state.counter + 1
         })
@@ -29,6 +29,19 @@ class SectionTwo extends Component {
         }
         console.log('this is the counter now after i click the arrow',this.state.counter)
     }
+
+    // counterClickSub = () => {
+    //     this.setState({
+    //         counter: this.state.counter - 1
+    //     })
+    //     if (this.state.counter === this.props.brandArray.length) {
+            
+    //         this.setState({
+    //             counter: 0
+    //         })
+    //     }
+    //     console.log('this is the counter now after i click the arrow', this.state.counter)
+    // }
 
     
     render() {
@@ -52,13 +65,13 @@ class SectionTwo extends Component {
                                 
                             
                                 <div>
-                                    <div value={productName} className="arrowButton arrowLeft">
+                                    <div value={productName} className="arrowButton arrowLeft"
+                                    onClick={this.counterClickSub}>
                                         <img src={require('./image/arrow.png')} alt="" />
                                     </div>
 
-                                    <div value={productName} className="arrowButton arrowRight" onClick={this.counterClick}
+                                    <div value={productName} className="arrowButton arrowRight" onClick={this.counterClickAdd}
                                     >
-                                        {/* {console.log('this is the counter', this.state.counter)} */}
                                         <img src={require('./image/arrow.png')} alt="" />
                                     </div>
                                 
@@ -89,13 +102,12 @@ class SectionTwo extends Component {
                             return(
                                 <div className="visuallyHidden">
                                 
-                                    <div value={productName} className="arrowButton arrowLeft">
+                                    <div value={productName} className="arrowButton arrowLeft" onClick={this.counterClickSub}>
                                         <img src={require('./image/arrow.png')} alt="" />
                                     </div>
 
-                                    <div value={productName} className="arrowButton arrowRight" onClick={this.counterClick}
+                                    <div value={productName} className="arrowButton arrowRight" onClick={this.counterClickAdd}
                                     >
-                                        {/* {console.log('this is the counter', this.state.counter)} */}
                                         <img src={require('./image/arrow.png')} alt="" />
                                     </div>
                                 

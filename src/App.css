@@ -232,7 +232,7 @@ html {
 }
 
 .sectionTwo {
-  background-image: url(../image/brushes.jpg);
+  background-image: url('./image/brushes.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -271,7 +271,7 @@ html {
 }
 
 .makeUpInfo {
-  background-image: url(../image/productTop.png);
+  background-image: url(./image/productTop.png);
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
@@ -293,7 +293,7 @@ html {
 }
 
 .makeUpColors {
-  background-image: url(../image/productBottom.png);
+  background-image: url(./image/productBottom.png);
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
@@ -313,8 +313,8 @@ html {
 
 .sectionOne {
   min-height: 100vh;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.8))), url("../image/sectionOneBack.jpg");
-  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)), url("../image/sectionOneBack.jpg");
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.8))), url("./image/sectionOneBack.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)), url("./image/sectionOneBack.jpg");
   background-position: bottom;
   background-size: cover;
   background-repeat: no-repeat;
@@ -415,7 +415,7 @@ input[type="search"] {
 }
 
 .titleText {
-  background: url("../image/title-02.png");
+  background: url("./image/title-02.png");
   background-repeat: no-repeat;
   background-size: contain;
   margin-top: 25px;
@@ -488,7 +488,7 @@ input[type="search"] {
   background-position: center;
   background-size: cover;
   padding: 10vh 0;
-  background-image: url("../image/backgroundImg.png");
+  background-image: url("./image/backgroundImg.png");
 }
 
 .artwork {
