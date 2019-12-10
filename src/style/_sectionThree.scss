@@ -1,10 +1,10 @@
 .makeArt {
-    height: 30vh;
+    height: 200px;
     @include flexer;
     background:black;
     .generateContainer {
         display: flex;
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
         width: 80%;
         height: 25vh;
@@ -28,7 +28,9 @@
             border-bottom-right-radius: 10px;
         }
         img {
-            max-width:150px;
+            max-width: 150px;
+            margin-left: 19%;
+            margin-right: 1%;
         }
         img:hover {
             animation: spin 0.5s infinite linear;
@@ -51,6 +53,7 @@
         }           
         button:hover,
         button:focus {
+            background: rgb(8, 41, 36);
             border: rgba(14, 62, 54, 1) solid 3px;
             color: rgba(143, 205, 163, 1);
         }
@@ -86,6 +89,7 @@
         // .parallax {
         //   margin-top: 10vh;
         // }
+        @include flexer;
     }
 }
 
@@ -94,6 +98,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 80%;
     img {
         border:solid 2px;
         border-bottom-color:#ffe;
@@ -165,12 +170,75 @@
     }
 }
 
+.saveIt {
+    color: $platinum;
+    letter-spacing: 2px;
+    display: inline-block;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 8px;
+    border: $platinum solid 3px;
+    border-radius: 2px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    text-transform: capitalize;
+    padding: 10px 15px;
+    font-family: 'Muli', sans-serif;
+    background: rgba(14, 62, 54, 1);   
+    .bookmark {
+        color: rgb(255, 255, 0);
+    }
+}
+.saveIt:hover,
+.saveIt:focus {
+    border: rgba(14, 62, 54, 1) solid 3px;
+    color: rgba(143, 205, 163, 1);
+    background: rgb(8, 41, 36);
+}
+
+.saved {
+    color: $platinum;
+    letter-spacing: 2px;
+    display: inline-block;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 8px;
+    border: none;
+    text-transform: capitalize;
+    padding: 10px 15px;
+    font-family: 'Muli', sans-serif;
+    background: none;   
+    .bookmark {
+        color: $lightgreen;
+    }
+}
+
 @media (max-width: 800px) {
+    .makeArt {
+        .generateContainer {
+            width: 90%;
+            height: 25vh;
+            h2 {
+                font-size: 1.8rem;
+            }
+            h3 {
+                font-size: 2rem;
+            }
+            img {
+                max-width: 100px;
+            }
+            button {
+                letter-spacing: 1px;
+                font-size: 1.4rem;
+            }           
+        }
+    }
+
     .preloader {
         img {
             width:70%
         }
-}
+    }
 
     .artwork {
         img {
@@ -190,26 +258,15 @@
     }
 }
 
-// @media (max-width: 600px) {
-
-//     .individualPainting {
-//         .backgroundArt {
-//             padding-bottom: 200vh;
-//             .parallax {
-//                 margin-top: 250vh;
-//             }
-//         }
-//     }
-// }
-
-// @media (max-width: 400px) {
-
-//     .individualPainting {
-//         .backgroundArt {
-//             padding-bottom: 180vh;
-//             .parallax {
-//                 margin-top: 220vh;
-//             }
-//         }
-//     }
-// }
+@media (max-width: 600px) {
+    .makeArt {
+        .generateContainer {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            img {
+                display: none;
+            }        
+        }
+    }
+}

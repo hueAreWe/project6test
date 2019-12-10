@@ -31,11 +31,11 @@ html {
   position: fixed;
   right: 20px;
   bottom: 10px;
-//   font-family: 'Monoton', cursive;
+  font-family: 'Muli', cursive;
   color: $platinum;
   letter-spacing: 2px;
   text-decoration: none;
-  font-size:10rem;
+  font-size:3rem;
   z-index: 10;
 }
 
@@ -72,25 +72,25 @@ html {
 }
 
 @-webkit-keyframes shimmer {
-    0% {
-        background-position: -4rem top; /*50px*/
-    }
-
-    70% {
-        background-position: 12.5rem top; /*200px*/
-    }
-
-    100% {
-        background-position: 12.5rem top; /*200px*/
-    }
-
     // 0% {
-    //     background-position: top left;
+    //     background-position: -4rem top; /*50px*/
+    // }
+
+    // 70% {
+    //     background-position: 12.5rem top; /*200px*/
     // }
 
     // 100% {
-    //     background-position: top right;
+    //     background-position: 12.5rem top; /*200px*/
     // }
+
+    0% {
+        background-position: top left;
+    }
+
+    100% {
+        background-position: top right;
+    }
 }
 ///
 
@@ -113,56 +113,4 @@ html {
     justify-content: center;
 }
 
-// @mixin heading-1 {
-//     font-family: 'Merienda One', cursive;
-//     font-size: 6rem;
-//     line-height: 7rem;
-//     text-transform: uppercase;
-//     text-align: center;
-//     @media (max-width: 800px) {
-//         font-size: 4rem;
-//         line-height: 5rem;
-//     }
-// }
 
-// @mixin heading-2 {
-//     font-family: 'Merienda One', cursive;
-//     font-size: 3rem;
-//     @media (max-width: 800px) {
-//         font-size: 2.5rem;
-//         line-height: 3.5rem;
-//         text-align: center;
-//     }
-// }
-
-// @mixin heading-3 {
-//     font-family: 'Kalam', cursive;
-//     font-size: 2rem;
-//     text-transform: uppercase;
-// }
-
-// @mixin text-1 {
-//     font-family: 'Enriqueta', serif;
-//     font-size: 1.8rem;
-//     line-height: 2.7rem;
-//     color: $black;
-//     @media (max-width: 600px) {
-//         font-size: 1.4rem;
-//         line-height: 2rem;
-//     }
-// }
-
-// @mixin text-2 {
-//     font-family: 'Enriqueta', serif;
-//     font-size: 1.6rem;
-//     line-height: 1.8rem;
-//     color: $black;
-//     @media (max-width: 1060px) {
-//         font-size: 1.4rem;
-//         line-height: 1.5rem;
-//     }
-//     @media (max-width: 550px) {
-//         font-size: 1.0rem;
-//         line-height: 1.0rem;
-//     }
-// }
