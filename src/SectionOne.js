@@ -85,13 +85,11 @@ class SectionOne extends Component {
 
     handleSubmit = e => {
         e.preventDefault()
-
-        console.log(this.state.searchValue)
             
         if (this.state.searchValue !== "") {
         
             this.setState({
-                errorMessage: "Sorry, we cann't find your brand🤪"
+                errorMessage: "Sorry, we can't find that brand."
             })
 
             this.state.allBrands.forEach((i)=>{
@@ -107,7 +105,7 @@ class SectionOne extends Component {
 
         } else {
             this.setState({
-                errorMessage: "Please give us something!🤬"
+                errorMessage: "Please choose a brand."
             })
         }        
     }
@@ -128,7 +126,6 @@ render() {
             </div>
             <form action="">
                 <label htmlFor="searchBar" className="visuallyHidden">Enter your favourite brand</label>
-                    {this.state.errorMessage !== "" ? <div>{this.state.errorMessage}</div> : ""}
                 <input 
                     type="search" 
                     placeholder="ex: L'Oreal" 
@@ -137,10 +134,11 @@ render() {
                     value={this.state.searchValue}
                 >
                 </input>
-                <button onClick={this.handleSubmit} className="visuallyHidden">
+                <button onClick={this.handleSubmit} className="visuallyHidden submitButton">
                     Submit
                 </button>
             </form>
+            {this.state.errorMessage !== "" ? <div className="errorMessage">{this.state.errorMessage}</div> : ""}
 
             <div className="brandsContainer">
                 {this.state.filterBrand.map((i)=>{

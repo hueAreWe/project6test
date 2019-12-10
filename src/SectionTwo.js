@@ -52,6 +52,7 @@ class SectionTwo extends Component {
                 <p>Choosing {this.props.chosenBrandProp} is a great idea! Personally, we love {this.props.topProductsProp}</p>
 
 
+
                 {
                     this.props.brandArray.map((product, index) => {
                         // console.log('this is the brand array thingy', this.props.brandArray);
@@ -177,8 +178,8 @@ class SectionTwo extends Component {
                         
                     })
                 }
-            
-​
+
+
             </section>
         )
     }
