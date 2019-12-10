@@ -10,7 +10,7 @@ class SectionTwo extends Component {
     } 
 
     componentDidMount() {
-    
+        
 //         document.addEventListener('DOMContentLoaded', () => {
 
 //             const elems = document.querySelectorAll('.carousel');
@@ -21,6 +21,7 @@ class SectionTwo extends Component {
 
 
     render() {
+        console.log(this.props.brandArray)
         return (
             <section className="sectionTwo">
                 <h1>You chose the brand: {this.props.chosenBrandProp}</h1>
