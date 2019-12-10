@@ -88,7 +88,7 @@ class Gallery extends Component {
 
                 </ParallaxProvider>
 
-                <Link to='/'><FontAwesomeIcon className="backHome" icon={faHome} /></Link>
+                <Link to='/'><FontAwesomeIcon className="shimmer galleryLink" icon={faHome} /></Link>
 
             </div>
             

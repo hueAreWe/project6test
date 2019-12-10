@@ -6,7 +6,7 @@
     @include flexer;
     h1 {
         color: $platinum;
-        font-family: 'Monoton', cursive;
+        font-family: 'Muli', cursive;
         font-size: 100px;
         font-weight: normal;
         text-transform: uppercase;
@@ -173,14 +173,33 @@
 //     }
 // }
 
-// @media (max-width: 400px) {
+@media (max-width: 800px) {
 
-//     .individualPainting {
-//         .backgroundArt {
-//             padding-bottom: 180vh;
-//             .parallax {
-//                 margin-top: 220vh;
-//             }
-//         }
-//     }
-// }
+    .galleryHeader {
+        h1 {
+            font-size: 50px;
+            padding: 20px 50px;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .galleryHeader {
+        h1 {
+            font-size: 30px;
+            padding: none;
+            border: none;
+        }
+    }
+
+    .artworkGallery {
+        &:hover >.infoGallery {
+            h2 {
+                font-size: 1.5rem;
+            }
+            h3 {
+                font-size: 1rem;
+            }
+        }
+    }
+}

@@ -4,8 +4,6 @@ import firebase from './firebase';
 import Tilt from 'react-parallax-tilt';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookmark } from '@fortawesome/free-solid-svg-icons'
-// import { ParallaxProvider } from 'react-scroll-parallax';
-// import { Parallax } from 'react-scroll-parallax';
 import makeupPaintPalette from './image/makeupPaintPalette.png';
 import easelPainting from './image/easelPainting.gif';
 
@@ -14,6 +12,7 @@ class SectionThree extends Component {
         super()
         this.state = {
             paintingArray: undefined,
+            saved: false,
             normalizedColors: {
                 darkGreen: "#367614",
                 pink: "#DF4C93",
@@ -31,32 +30,6 @@ class SectionThree extends Component {
         }
     }
 
-    componentDidMount(){
-        console.log(this.props.paintingColorProp);
-        // axios({
-        //     method: 'GET',
-        //     url: `https://www.rijksmuseum.nl/api/en/collection?`,
-        //     dataResponse: 'json',
-        //     params: {
-        //         key: 'e2KwL8qU',
-        //         "normalized32Colors.hex": this.props.paintingColorProp,
-        //         type: 'painting'
-
-        //     }
-        // })
-        //     .then((data) => {
-        //         // this.setState({ arts: data.data.artObjects[0]})
-        //         // console.log(this.state.arts);
-        //         console.log('museum', data)
-        //         this.setState({
-        //             paintingArray: data.artObjects
-        //         })
-
-
-        //     })
-        
-    }
-
     scrollToBottom = () => {
         this.toTheBottom.scrollIntoView({ behavior: "smooth" });
     }
@@ -68,8 +41,6 @@ class SectionThree extends Component {
 
         let matchedColor = nearestColor(this.props.paintingColorProp);
         console.log(matchedColor)
-
-
 
         axios({
             method: 'GET',
@@ -86,9 +57,6 @@ class SectionThree extends Component {
             }
         })
             .then((data) => {
-                // this.setState({ arts: data.data.artObjects[0]})
-                // console.log(this.state.arts);
-                console.log('museum', data.data)
 
                 this.setState({
                     paintingArray: true
@@ -133,18 +101,15 @@ class SectionThree extends Component {
             paintingImage: this.state.paintingArray[0].webImage.url,
             paintingArtist: this.state.paintingArray[0].principalOrFirstMaker,
         }
-
         dbRef.child('publicGallery').push(paintingObject);
 
-
+        this.setState({saved: true})
     }
 
 
     render() {
-
         return (
             <div className='sectionThree'>
-                
                 <section className="makeArt">
                     <div className="generateContainer" >
                     <div>
@@ -172,22 +137,16 @@ class SectionThree extends Component {
                             :
                             (null)
                     )
-
                 }
 
                 {   
                     (
                         this.state.paintingArray !== undefined && this.state.paintingArray !== true
                             ?
-                            ///////////////////////////////////////////////////////////////////////////////////////
-                        // <ParallaxProvider>
                             
-                            <ul className="individualPainting">
+                            <div className="individualPainting">
                                 <div className="backgroundArt">  
-
-                                    {/* <Parallax className="parallax" y={[-20, 20]} tagOuter="figure"> */}
-
-                                        <li className="rapper artwork ">
+                                        <div className="artwork">
                                             <Tilt tiltMaxAngleX="7" tiltMaxAngleY="7">
                                                 <div className="frame">
                                                     <img src={this.state.paintingArray[0].webImage.url} alt={this.state.paintingArray[0].title} />
@@ -197,38 +156,23 @@ class SectionThree extends Component {
                                                 <h2>{this.state.paintingArray[0].title}</h2>
                                                 <h3>{this.state.paintingArray[0].principalOrFirstMaker}</h3>
                                             </div>
+                                            {(this.state.saved === false 
+                                            ? 
                                             <button className="saveIt" onClick={this.saveGallery}>
-                                                <FontAwesomeIcon className="bookmark" icon={faBookmark}/> Save It!
+                                                <FontAwesomeIcon className="bookmark" icon={faBookmark} /> Save It!
                                             </button>
-                                        </li>
-                                
-                                {/* {this.state.paintingArray.map((i) => {
-                                    return (
-                                    <li className="artwork rapper">
-                                            <Tilt tiltMaxAngleX="7" tiltMaxAngleY="7">
-                                        <div className="frame">
-                                    <div key={i.id}>
-                                        <div className="image">
-                                            <img src={i.webImage.url} alt={i.title} />
+                                                : 
+                                            <button className="saved" onClick={this.saveGallery}>
+                                                <FontAwesomeIcon className="bookmark" icon={faBookmark} /> You Saved It! Check Gallery
+                                            </button>
+                                            )}
+                                            
                                         </div>
-                                        </Tilt>
-                                        <div className="info rapper">
-                                            <h2>{i.title}</h2>
-                                            <h3>{i.principalOrFirstMaker}</h3>
-                                        </div>
-                                    </li>
-                                    )
-                                })} */}
-                                {/* </Parallax> */}
-                            
-                            </div>
+                                </div>
                                 <div style={{ float: "left", clear: "both" }}
                                     ref={(el) => { this.toTheBottom = el; }}>
                                 </div>
-                            </ul>
-                        // </ParallaxProvider>    
-
-
+                            </div>
                             :
                             (null)
                     )
