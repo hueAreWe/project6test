@@ -1,10 +1,12 @@
 {
+  "homepage": "https://huearewe.github.io/hueAreYou/",
   "name": "hueareyou-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "axios": "^0.19.0",
     "firebase": "^7.5.2",
+    "gh-pages": "^2.1.1",
     "materialize-css": "^1.0.0-rc.2",
     "nearest-color": "^0.4.4",
     "node-sass": "^4.13.0",
@@ -16,10 +18,13 @@
     "react-scroll-parallax": "^2.2.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+    
   },
   "eslintConfig": {
     "extends": "react-app"
