@@ -44,9 +44,6 @@ class SectionTwo extends Component {
             
             <section className="sectionTwo">
                 <h1>You chose the brand: {this.props.chosenBrandProp}</h1>
-                <p>Choosing {this.props.chosenBrandProp} is a great idea! Personally, we love {this.props.topProductsProp}</p>
-
-
 
                 {
                     this.props.brandArray.map((product, index) => {
@@ -71,11 +68,11 @@ class SectionTwo extends Component {
                                         <img src={require('./image/arrow.png')} alt="" />
                                     </div>
                                 
-                                    <div className="productInfo wrapper">
+                                    <div className="productInfo sectionTwoWrapper">
                                         <div className="makeUpInfo">
                                             <div className="makeUpDetails">
                                                 <h3>{productName}</h3>
-                                                <h4>{this.props.productPriceProp}</h4>
+                                                
                                             </div>
                                             <div className="makeUpImg">
                                                 <img src={this.props.productImageProp} alt={`${this.props.chosenBrandProp}'s ${productName}`} />
@@ -84,13 +81,13 @@ class SectionTwo extends Component {
                                         </div>
                                 
                                         <div className="makeUpColors">
-                                            <button className="colorButton" style={{ background: product[0].hex }} onClick={this.props.storeColor} value={product[0].hex}>{product[0].hex}</button>
-                                            <button className="colorButton" style={{ background: product[1].hex }} onClick={this.props.storeColor} value={product[1].hex}>{product[1].hex}</button>
-                                            <button className="colorButton" style={{ background: product[2].hex }} onClick={this.props.storeColor} value={product[2].hex}>{product[2].hex}</button>
-                                            <button className="colorButton" style={{ background: product[3].hex }} onClick={this.props.storeColor} value={product[3].hex}>{product[3].hex}</button>
-                                            <button className="colorButton" style={{ background: product[4].hex }} onClick={this.props.storeColor} value={product[4].hex}>{product[4].hex}</button>
-                                            <button className="colorButton" style={{ background: product[5].hex }} onClick={this.props.storeColor} value={product[5].hex}>{product[5].hex}</button>
-                                            <button className="colorButton" style={{ background: product[6].hex }} onClick={this.props.storeColor} value={product[6].hex}>{product[6].hex}</button>
+                                            <button className="colorButton" style={{ background: product[0].hex }} onClick={this.props.storeColor} value={product[0].hex}></button>
+                                            <button className="colorButton" style={{ background: product[1].hex }} onClick={this.props.storeColor} value={product[1].hex}></button>
+                                            <button className="colorButton" style={{ background: product[2].hex }} onClick={this.props.storeColor} value={product[2].hex}></button>
+                                            <button className="colorButton" style={{ background: product[3].hex }} onClick={this.props.storeColor} value={product[3].hex}></button>
+                                            <button className="colorButton" style={{ background: product[4].hex }} onClick={this.props.storeColor} value={product[4].hex}></button>
+                                            <button className="colorButton" style={{ background: product[5].hex }} onClick={this.props.storeColor} value={product[5].hex}></button>
+                                            <button className="colorButton" style={{ background: product[6].hex }} onClick={this.props.storeColor} value={product[6].hex}></button>
                                         </div>
                                     </div>
                             </div>)}
@@ -107,11 +104,11 @@ class SectionTwo extends Component {
                                         <img src={require('./image/arrow.png')} alt="" />
                                     </div>
                                 
-                                    <div className="productInfo wrapper">
+                                    <div className="productInfo sectionTwoWrapper">
                                         <div className="makeUpInfo">
                                             <div className="makeUpDetails">
                                                 <h3>{productName}</h3>
-                                                <h4>{this.props.productPriceProp}</h4>
+                                                
                                             </div>
                                             <div className="makeUpImg">
                                                 <img src={this.props.productImageProp} alt={`${this.props.chosenBrandProp}'s ${productName}`} />
@@ -120,57 +117,17 @@ class SectionTwo extends Component {
                                         </div>
                                 
                                         <div className="makeUpColors">
-                                            <button className="colorButton" style={{ background: product[0].hex }} onClick={this.props.storeColor} value={product[0].hex}>{product[0].hex}</button>
-                                            <button className="colorButton" style={{ background: product[1].hex }} onClick={this.props.storeColor} value={product[1].hex}>{product[1].hex}</button>
-                                            <button className="colorButton" style={{ background: product[2].hex }} onClick={this.props.storeColor} value={product[2].hex}>{product[2].hex}</button>
-                                            <button className="colorButton" style={{ background: product[3].hex }} onClick={this.props.storeColor} value={product[3].hex}>{product[3].hex}</button>
-                                            <button className="colorButton" style={{ background: product[4].hex }} onClick={this.props.storeColor} value={product[4].hex}>{product[4].hex}</button>
-                                            <button className="colorButton" style={{ background: product[5].hex }} onClick={this.props.storeColor} value={product[5].hex}>{product[5].hex}</button>
-                                            <button className="colorButton" style={{ background: product[6].hex }} onClick={this.props.storeColor} value={product[6].hex}>{product[6].hex}</button>
+                                            <button className="colorButton" style={{ background: product[0].hex }} onClick={this.props.storeColor} value={product[0].hex}></button>
+                                            <button className="colorButton" style={{ background: product[1].hex }} onClick={this.props.storeColor} value={product[1].hex}></button>
+                                            <button className="colorButton" style={{ background: product[2].hex }} onClick={this.props.storeColor} value={product[2].hex}></button>
+                                            <button className="colorButton" style={{ background: product[3].hex }} onClick={this.props.storeColor} value={product[3].hex}></button>
+                                            <button className="colorButton" style={{ background: product[4].hex }} onClick={this.props.storeColor} value={product[4].hex}></button>
+                                            <button className="colorButton" style={{ background: product[5].hex }} onClick={this.props.storeColor} value={product[5].hex}></button>
+                                            <button className="colorButton" style={{ background: product[6].hex }} onClick={this.props.storeColor} value={product[6].hex}></button>
                                         </div>
                                     </div>
                                 </div>)
                                 }
-                            
-                        
-                            
-                        //     <>
-                                
-                        //         <div value={productName} className="arrowButton arrowLeft">
-                        //                 <img src={require('./image/arrow.png')} alt=""/>
-                        //         </div>
-
-                        //         <div value={productName} className="arrowButton arrowRight"onClick={this.counterClick}
-                        //         >
-                        //             {/* {console.log('this is the counter', this.state.counter)} */}
-                        //                 <img src={require('./image/arrow.png')} alt=""/>
-                        //         </div>
-                                
-                        //     <div className="productInfo wrapper">
-                        //         <div className="makeUpInfo">
-                        //             <div className="makeUpDetails">
-                        //             <h3>{productName}</h3>
-                        //             <h4>{this.props.productPriceProp}</h4>
-                        //             </div>
-                        //             <div className="makeUpImg">
-                        //             <img src={this.props.productImageProp} alt={`${this.props.chosenBrandProp}'s ${productName}`} />
-                        //             </div>
-                                    
-                        //         </div>
-                                
-                        //         <div className="makeUpColors">
-                        //         <button className="colorButton" style={{background: product[0].hex}} onClick={this.props.storeColor} value={product[0].hex}>{product[0].hex}</button>
-                        //         <button className="colorButton" style={{background: product[1].hex}} onClick={this.props.storeColor} value={product[1].hex}>{product[1].hex}</button>
-                        //         <button className="colorButton" style={{background: product[2].hex}} onClick={this.props.storeColor} value={product[2].hex}>{product[2].hex}</button>
-                        //         <button className="colorButton" style={{background: product[3].hex}} onClick={this.props.storeColor} value={product[3].hex}>{product[3].hex}</button>
-                        //         <button className="colorButton" style={{background: product[4].hex}} onClick={this.props.storeColor} value={product[4].hex}>{product[4].hex}</button>
-                        //         <button className="colorButton" style={{background: product[5].hex}} onClick={this.props.storeColor} value={product[5].hex}>{product[5].hex}</button>
-                        //         <button className="colorButton" style={{ background: product[6].hex }} onClick={this.props.storeColor} value={product[6].hex}>{product[6].hex}</button>
-                        //             </div>
-                        //     </div>
-                        // </>
-                        
-                        
                     })
                 }
 
