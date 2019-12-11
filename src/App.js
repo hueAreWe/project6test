@@ -29,116 +29,18 @@ class App extends Component {
       counter: 0,
       productImage: '',
       sectionTwoPageLoad: false,
-      colorsArray2: {
-        1: "#737C84",
-        2: "#FBF6E1",
-        darkTeal: "#2F4F4F",
-        4: "#E0CC91",
-        black: "#000000",
-        6: "#43C6F8",
-        grey: "#B5BFCC",
-        skyBlue: "#C7F2F4",
-        brown: "#B35A1F",
-        lightTeal: "#72E6BF",
-        allBrands: [
-          "almay",
-          "anna sui",
-          "benefit",
-          "boosh",
-          "burt's bees",
-          "butter london",
-          "cargo cosmetics",
-          "clinique",
-          "coastal classic creation",
-          "colourpop",
-          "covergirl",
-          "dior",
-          "dr. hauschka",
-          "e.l.f.",
-          "essie",
-          "l'oreal",
-          "marcelle",
-          "marienatie",
-          "maybelline",
-          "milani",
-          "misa",
-          "nudus",
-          "nyx",
-          "orly",
-          "penny lane organics",
-          "piggy paint",
-          "pure anada",
-          "rejuva minerals",
-          "revlon",
-          "salon perfect",
-          "sinful colours",
-          "smashbox",
-          "suncoat"
-        ],
-      }
     }
   }
 
   componentDidMount() {
     const dbRef = firebase.database().ref();
-    // this.addArtToFirebase()
-    
-    
-  }
-
-
-  // addArtToFirebase = (e) => {
-  //   /// note this is a test axios call to get firebase working. @steven, remove this when you move this funciton to section 3 component
-  //   axios({
-  //     method: 'GET',
-  //     url: `https://www.rijksmuseum.nl/api/en/collection?`,
-  //     dataResponse: 'json',
-  //     params: {
-  //       key: 'e2KwL8qU',
-  //       "f.normalized32Colors.hex": this.props.paintingColorProp,
-  //       type: 'painting',
-  //       imgonly: true,
-  //       // s: 'relevance',
-  //       ps: 100
-
-  //     }
-  //   })
-      // .then((data) => {
-
-      //   const dbRef = firebase.database().ref();
-
-      //   console.log(data.data.artObjects[0])
-
-      //   const paintingObject = {
-      //     paintingTitle: data.data.artObjects[2].title,
-      //     paintingImage: data.data.artObjects[2].webImage.url,
-      //     paintingArtist: data.data.artObjects[2].principalOrFirstMaker,
-      //   }
-
-      //   dbRef.child('publicGallery').push(paintingObject);
-
-      // })
-
-  // }
-
-  // changeGallery = (e) => {
-  //   console.log('gallery')
-  //   this.setState({
-  //     showSectionOne: false,
-  //     showSectionTwo: false,
-  //     showSectionThree: false,
-  //     showGallery: true,
-  //   })    
-  // }
-
-  
+  }  
 
   startCarousel = (e) => {
     this.setState({
       nextProduct: e.target.value
     })
   }
-
 
   storeColor = (e) => {
     this.setState({
@@ -179,7 +81,6 @@ class App extends Component {
               }
             })
             // console.log(newColorArray)
-
 
             arrayOfProducts.push(products.name);            
             if (brandInfo.length > 2) {
@@ -239,15 +140,6 @@ class App extends Component {
       })
     }
   }
-
-  // nearestColorFunction = () => {        
-  //   const nearestColor = require('nearest-color').from(this.state.colorsArray);
-  //   // (console.log(nearestColor('#f01')))
-  //   // console.log('this is the nearest color', nearestColor)
-  //   let matchedColor = nearestColor(colorFinal);
-  //   console.log(matchedColor.value)
-  // }
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // the chosenbrand handler

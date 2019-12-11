@@ -17,12 +17,12 @@ class SectionTwo extends Component {
     }
     
     render() {
+        
         return (
             
             
             <section className="sectionTwo">
-                <h1>You chose the brand: {this.props.chosenBrandProp}</h1>
-
+                <h2>You chose the brand: <span>{this.props.chosenBrandProp}</span> </h2>
                 {
                     this.props.brandArray.map((product, index) => {
                         
@@ -42,7 +42,7 @@ class SectionTwo extends Component {
                                     <div className="productInfo sectionTwoWrapper">
                                         {/* arrow */}
                                         <div value={productName} className="arrowButton arrowLeft"
-                                        onClick={this.counterClickSub}>
+                                        onClick={this.props.counterClickSub}>
                                             <img src={require('./image/arrow.png')} alt="" />
                                         </div>
 
@@ -70,7 +70,7 @@ class SectionTwo extends Component {
                                         </div>
 
                                         {/* arrow */}
-                                        <div value={productName} className="arrowButton arrowRight" onClick={this.counterClickAdd}>
+                                        <div value={productName} className="arrowButton arrowRight" onClick={this.props.counterClickAdd}>
                                             <img src={require('./image/arrow.png')} alt="" />
                                         </div>
                                     </div>
@@ -83,7 +83,7 @@ class SectionTwo extends Component {
 
                                     <div className="productInfo sectionTwoWrapper">
                                         {/* arrow */}
-                                        <div value={productName} className="arrowButton arrowLeft" onClick={this.counterClickSub}>
+                                        <div value={productName} className="arrowButton arrowLeft" onClick={this.props.counterClickSub}>
                                             <img src={require('./image/arrow.png')} alt="" />
                                         </div>
 
@@ -111,7 +111,7 @@ class SectionTwo extends Component {
                                         </div>
                                         
                                         {/* arrow */}
-                                        <div value={productName} className="arrowButton arrowRight" onClick={this.counterClickAdd}
+                                        <div value={productName} className="arrowButton arrowRight" onClick={this.props.counterClickAdd}
                                         >
                                             <img src={require('./image/arrow.png')} alt="" />
                                         </div>
