@@ -98,6 +98,9 @@ class SectionThree extends Component {
 
         console.log(this.state.paintingArray[0])
 
+        localStorage.setItem('paintingTitle', this.state.paintingArray[0].title)
+        
+
         const paintingObject = {
             paintingTitle: this.state.paintingArray[0].title,
             paintingImage: this.state.paintingArray[0].webImage.url,

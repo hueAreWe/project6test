@@ -28,8 +28,11 @@ html{
     }
 }
 
-.sectionTwo h1{
+.sectionTwo h2{
     font-family: 'muli', cursive;
+    span{
+        text-transform: capitalize;
+    }
     margin: 40px 0;
 }
 .sectionTwo h3{
@@ -170,5 +173,7 @@ margin: 0 auto;
 
     &:hover{
     filter: brightness(130%);
-    }
 }
+}
+
+
