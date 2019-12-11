@@ -140,45 +140,18 @@
 }
 
 
-// @media (max-width: 800px) {
-
-
-//     .artwork {
-//         img {
-//             max-height: 300px;
-//         }
-//         .frame {
-//             height: auto;
-//         }
-//     }
-//     .info {
-//         h2 {
-//             font-size: 2rem;
-//         }
-//         h3 {
-//             font-size: 1.5rem;
-//         }
-//     }
-// }
-
-// @media (max-width: 600px) {
-
-//     .individualPainting {
-//         .backgroundArt {
-//             padding-bottom: 200vh;
-//             .parallax {
-//                 margin-top: 250vh;
-//             }
-//         }
-//     }
-// }
-
 @media (max-width: 800px) {
 
     .galleryHeader {
         h1 {
             font-size: 50px;
             padding: 20px 50px;
+        }
+    }
+
+    .preloader {
+        img {
+            width:70%
         }
     }
 }

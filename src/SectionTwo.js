@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import products from './image/sectionTwoPreload.gif';
 
 class SectionTwo extends Component {
     constructor() {
@@ -17,7 +17,6 @@ class SectionTwo extends Component {
         this.toTheBottom.scrollIntoView({ behavior: "smooth" });
     }
 
-    counterClickAdd = () => {
     isItInitialLoad = () => {
         console.log('its loading')
         this.setState({
@@ -30,6 +29,26 @@ class SectionTwo extends Component {
             
             
             <section className="sectionTwo">
+
+                {( this.props.preload === true ?
+
+                    <div className="preloader">
+                        <img src={products} alt="many make up products" />
+
+                        <div style={{ float: "left", clear: "both" }}
+                            ref={(el) => { this.toTheBottom = el; }}>
+                        </div>
+                    </div>
+
+                    :
+
+                    null
+
+                )}
+
+
+
+
                 <h1>You chose the brand: {this.props.chosenBrandProp}</h1>
 
                 {
@@ -130,10 +149,6 @@ class SectionTwo extends Component {
                                 }
                     })
                 }
-
-            <div style={{ float: "left", clear: "both" }}
-                ref={(el) => { this.toTheBottom = el; }}>
-            </div>
 
             </section>
         )
