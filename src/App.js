@@ -17,11 +17,10 @@ class App extends Component {
       showSectionOne: true,
       showSectionTwo: false,
       showSectionThree: true,
-      paintingColor: "#367614",
       chosenBrand: "orly",
       // hold the 28 colors
       finalPainting: {},
-      chosenColor: "",
+      chosenColor: false,
       topProducts: [],
       colorsArray: [],
       brandObject: {},
@@ -225,8 +224,8 @@ class App extends Component {
       showSectionTwo: true
     });
     this.makeUpCall(b);
-
   }
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 

@@ -10,6 +10,13 @@ class SectionTwo extends Component {
         }
     } 
 
+    componentDidMount () {
+        this.scrollToBottom();
+    }
+
+    scrollToBottom = () => {
+        this.toTheBottom.scrollIntoView({ behavior: "smooth" });
+    }
 
     counterClickAdd = () => {
         this.setState({
@@ -131,6 +138,9 @@ class SectionTwo extends Component {
                     })
                 }
 
+            <div style={{ float: "left", clear: "both" }}
+                ref={(el) => { this.toTheBottom = el; }}>
+            </div>
 
             </section>
         )
