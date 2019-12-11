@@ -17,7 +17,7 @@ html{
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    height: 100vh;
+    min-height: 100vh;
     color: white;
     position: relative;
     display: flex;
@@ -30,6 +30,7 @@ html{
 
 .sectionTwo h1{
     font-family: 'muli', cursive;
+    margin: 40px 0;
 }
 .sectionTwo h3{
     font-size: 2.5rem;
@@ -53,12 +54,20 @@ html{
     transform: rotate(90deg);
     top: 20%;
     left: 40px;
+
+    @media (max-width: 500px) {
+       left: 10px;
+    } 
 }
 
 .arrowRight{
     transform: rotate(-90deg);
     top: 20%;
     right: 40px;
+
+    @media (max-width: 500px) {
+        right: 10px;
+    } 
 }
 
 .makeUpInfo{
@@ -81,6 +90,16 @@ html{
             display: block;
         }
     }
+
+    @media (max-width: 780px) {
+        background: #ffffff;
+        border-radius: 25px 25px 0 0;
+        border: 10px solid $darkgreen;
+        width: auto;
+    } 
+    
+    
+    
 }
 
 .makeUpColors{
@@ -95,6 +114,19 @@ justify-content: center;
 align-items: center;
 margin: 0 auto;
 
+    @media (max-width: 780px) {
+        background: darken($darkgreen, 6%);
+        border-radius: 0 0 25px 25px;
+        border: 10px solid $darkgreen;
+        height: auto;
+        width: auto;
+        margin: auto;
+    }  
+
+    @media (max-width: 400px) {
+        flex-wrap: wrap;
+    } 
+
 }
 
 .colorButton{
@@ -106,7 +138,37 @@ margin: 0 auto;
     border: none;
     box-shadow: inset -1px 5px 15px -1px rgba(0,0,0,0.67);
     border: 2px solid white;
+    @media (max-width: 780px) {
+        margin: auto;
+        &:last-of-type {
+            margin-right: 0;
+        }
+        &:first-of-type {
+            margin-left: 0;
+        }
+    } 
+
+    @media (max-width: 400px) {
+        height: 100px;
+        width: 100px;
+        margin: 2px;
+
+        &:last-of-type {
+            width: 310px;
+        }
+    } 
+
+    @media (max-width: 370px) {
+        height: 100px;
+        width: 48%;
+        margin: 2px;
+
+        &:last-of-type {
+            width: 310px;
+        }
+    }
+
     &:hover{
     filter: brightness(130%);
-}
+    }
 }
