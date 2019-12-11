@@ -17,7 +17,7 @@ class App extends Component {
       showSectionOne: true,
       showSectionTwo: false,
       showSectionThree: true,
-      chosenBrand: "orly",
+      chosenBrand: "",
       // hold the 28 colors
       finalPainting: {},
       chosenColor: false,
@@ -25,8 +25,9 @@ class App extends Component {
       colorsArray: [],
       brandObject: {},
       brandArray: [],
+      counter: 0,
       productImage: '',
-      
+      sectionTwoPageLoad: false,
       colorsArray2: {
         1: "#737C84",
         2: "#FBF6E1",
@@ -50,13 +51,10 @@ class App extends Component {
           "coastal classic creation",
           "colourpop",
           "covergirl",
-          "deciem",
           "dior",
           "dr. hauschka",
           "e.l.f.",
           "essie",
-          "fenty",
-          "iman",
           "l'oreal",
           "marcelle",
           "marienatie",
@@ -82,7 +80,6 @@ class App extends Component {
 
   componentDidMount() {
     const dbRef = firebase.database().ref();
-    console.log(dbRef)
     // this.addArtToFirebase()
     
     
@@ -143,7 +140,6 @@ class App extends Component {
 
 
   storeColor = (e) => {
-    console.log(e.target.value)
     this.setState({
       chosenColor: e.target.value,
     })
@@ -174,28 +170,35 @@ class App extends Component {
             })
 
             colorArray.push(products.name)
+            // console.log(products.image_link)
+            colorArray.push(products.image_link)
             const newColorArray = colorArray.filter((colorObject) => {
               if (typeof colorObject !== undefined) {
                 return colorObject
               }
             })
+            // console.log(newColorArray)
 
-            arrayOfProducts.push(products.name);
-            
-            brandInfo.push(newColorArray);
-            
 
-            this.setState({
-              productImage: products.image_link,
-            })
+            arrayOfProducts.push(products.name);            
+            if (brandInfo.length > 2) {
+              return
+            } else {
+              brandInfo.push(newColorArray);
+
+
+              this.setState({
+                productImage: products.image_link,
+              })
+            }
+            
             
 
           }
         })
-        if (typeof brandInfo !== undefined ) {
+        if (typeof brandInfo !== undefined) {
 
-          brandInfo.length = 3
-          console.log(brandInfo)
+          // brandInfo.length = 3
           this.setState({
             topProducts: arrayOfProducts.join("and "),
             brandArray: brandInfo,
@@ -205,6 +208,34 @@ class App extends Component {
         }
 
       })
+  }
+
+  counterClickAdd = () => {
+    if (this.state.counter < (this.state.brandArray.length - 1)) {
+      this.setState({
+        counter: this.state.counter + 1,
+        sectionTwoPageLoad: false,
+      })
+    } else {
+      this.setState({
+        counter: 0,
+        sectionTwoPageLoad: false,
+      })
+    }
+  }
+
+  counterClickSub = () => {
+    if (this.state.counter > 0) {
+      this.setState({
+        counter: this.state.counter - 1,
+        sectionTwoPageLoad: false,
+      })
+    } else {
+      this.setState({
+        counter: this.state.brandArray.length - 1,
+        sectionTwoPageLoad: false,
+      })
+    }
   }
 
   // nearestColorFunction = () => {        
@@ -221,7 +252,9 @@ class App extends Component {
   chosenBrandHandler = (b) => {
     this.setState({ 
       chosenBrand: b,
-      showSectionTwo: true
+      showSectionTwo: true,
+      sectionTwoPageLoad: true,
+      counter: 0,
     });
     this.makeUpCall(b);
   }
@@ -252,7 +285,7 @@ class App extends Component {
                       this.state.showSectionTwo === true
                         ? (
 
-                          <SectionTwo storeColor={this.storeColor} brandArray={this.state.brandArray} makeUpCallProp={this.makeUpCall} chosenBrandProp={this.state.chosenBrand} topProductsProp={this.state.topProducts} colorsArrayProp={this.state.colorsArray} productColorsProp={this.appendBrandInfo} productImageProp={this.state.productImage} />
+                          <SectionTwo counterClickAdd={this.counterClickAdd} counterClickSub={this.counterClickSub} counter={this.state.counter}sectionTwoPageLoad={this.state.sectionTwoPageLoad} storeColor={this.storeColor} brandArray={this.state.brandArray} makeUpCallProp={this.makeUpCall} chosenBrandProp={this.state.chosenBrand} topProductsProp={this.state.topProducts} colorsArrayProp={this.state.colorsArray} productColorsProp={this.appendBrandInfo} productImageProp={this.state.productImage} />
                         )
                         : null
                     }

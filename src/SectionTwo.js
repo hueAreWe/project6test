@@ -6,7 +6,6 @@ class SectionTwo extends Component {
         super();
         this.state = {
             color: '',
-            counter: 0
         }
     } 
 
@@ -19,120 +18,114 @@ class SectionTwo extends Component {
     }
 
     counterClickAdd = () => {
+    isItInitialLoad = () => {
+        console.log('its loading')
         this.setState({
-            counter: this.state.counter + 1
+            initialLoad: this.props.sectionTwoPageLoad,
         })
-        if (this.state.counter === this.props.brandArray.length) {
-            console.log('the lengths are now the same!!!')
-            this.setState({
-                counter: 0
-            })
-        }
-        console.log('this is the counter now after i click the arrow',this.state.counter)
     }
-
-    // counterClickSub = () => {
-    //     this.setState({
-    //         counter: this.state.counter - 1
-    //     })
-    //     if (this.state.counter === this.props.brandArray.length) {
-            
-    //         this.setState({
-    //             counter: 0
-    //         })
-    //     }
-    //     console.log('this is the counter now after i click the arrow', this.state.counter)
-    // }
-
     
     render() {
-        console.log(this.props.brandArray)
         return (
+            
             
             <section className="sectionTwo">
                 <h1>You chose the brand: {this.props.chosenBrandProp}</h1>
 
                 {
                     this.props.brandArray.map((product, index) => {
-                        // console.log('this is the brand array thingy', this.props.brandArray);
-                        console.log('indexy', index)
-                        //make a function that calls upon index in the array. have the onclick function in our arrows below call upon the counterClick above, enabling counter to increase by 1 (if right arrow) or decrease by 1 (if left arrow). once done, this will increase our counter and we will compare our index to the number on the counter. if the index number is = to counter, then we will only show what is equal to counter and visually hide everything else (take that from the setup snippet)
+                        
+                        // make a function that calls upon index in the array. have the onclick function in our arrows below call upon the counterClick above, enabling counter to increase by 1 (if right arrow) or decrease by 1 (if left arrow). once done, this will increase our counter and we will compare our index to the number on the counter. if the index number is = to counter, then we will only show what is equal to counter and visually hide everything else (take that from the setup snippet)
                         
                         
-                        const productName = product.slice(-1)[0]
-                        if (this.state.counter === index) {
+                        const productName = product.slice(-2)[0]
+                        const productImgLink = product.slice(-1)[0]
+                    
+                        if (this.props.counter === (index)) {
                                 return (
                                 
                             
                                 <div>
-                                    <div value={productName} className="arrowButton arrowLeft"
-                                    onClick={this.counterClickSub}>
-                                        <img src={require('./image/arrow.png')} alt="" />
-                                    </div>
 
-                                    <div value={productName} className="arrowButton arrowRight" onClick={this.counterClickAdd}
-                                    >
-                                        <img src={require('./image/arrow.png')} alt="" />
-                                    </div>
                                 
                                     <div className="productInfo sectionTwoWrapper">
-                                        <div className="makeUpInfo">
-                                            <div className="makeUpDetails">
-                                                <h3>{productName}</h3>
-                                                
-                                            </div>
-                                            <div className="makeUpImg">
-                                                <img src={this.props.productImageProp} alt={`${this.props.chosenBrandProp}'s ${productName}`} />
-                                            </div>
-                                    
+                                        {/* arrow */}
+                                        <div value={productName} className="arrowButton arrowLeft"
+                                        onClick={this.counterClickSub}>
+                                            <img src={require('./image/arrow.png')} alt="" />
                                         </div>
-                                
-                                        <div className="makeUpColors">
-                                            <button className="colorButton" style={{ background: product[0].hex }} onClick={this.props.storeColor} value={product[0].hex}></button>
-                                            <button className="colorButton" style={{ background: product[1].hex }} onClick={this.props.storeColor} value={product[1].hex}></button>
-                                            <button className="colorButton" style={{ background: product[2].hex }} onClick={this.props.storeColor} value={product[2].hex}></button>
-                                            <button className="colorButton" style={{ background: product[3].hex }} onClick={this.props.storeColor} value={product[3].hex}></button>
-                                            <button className="colorButton" style={{ background: product[4].hex }} onClick={this.props.storeColor} value={product[4].hex}></button>
-                                            <button className="colorButton" style={{ background: product[5].hex }} onClick={this.props.storeColor} value={product[5].hex}></button>
-                                            <button className="colorButton" style={{ background: product[6].hex }} onClick={this.props.storeColor} value={product[6].hex}></button>
+
+                                        <div className="pallette">
+                                            {/* top half of pallette */}
+                                            <div className="makeUpInfo">
+                                                <div className="makeUpDetails">
+                                                    <h3>{productName}</h3>   
+                                                </div>
+                                                <div className="makeUpImg">
+                                                    <img src={this.props.productImageProp} alt={`${this.props.chosenBrandProp}'s ${productName}`} />
+                                                </div>
+                                            </div>
+
+                                            {/* bottom half of pallette */}
+                                            <div className="makeUpColors">
+                                                <button className="colorButton" style={{ background: product[0].hex }} onClick={this.props.storeColor} value={product[0].hex}></button>
+                                                <button className="colorButton" style={{ background: product[1].hex }} onClick={this.props.storeColor} value={product[1].hex}></button>
+                                                <button className="colorButton" style={{ background: product[2].hex }} onClick={this.props.storeColor} value={product[2].hex}></button>
+                                                <button className="colorButton" style={{ background: product[3].hex }} onClick={this.props.storeColor} value={product[3].hex}></button>
+                                                <button className="colorButton" style={{ background: product[4].hex }} onClick={this.props.storeColor} value={product[4].hex}></button>
+                                                <button className="colorButton" style={{ background: product[5].hex }} onClick={this.props.storeColor} value={product[5].hex}></button>
+                                                <button className="colorButton" style={{ background: product[6].hex }} onClick={this.props.storeColor} value={product[6].hex}></button>
+                                            </div>
+                                        </div>
+
+                                        {/* arrow */}
+                                        <div value={productName} className="arrowButton arrowRight" onClick={this.counterClickAdd}>
+                                            <img src={require('./image/arrow.png')} alt="" />
                                         </div>
                                     </div>
+
                             </div>)}
                         else {
                             return(
                                 <div className="visuallyHidden">
                                 
-                                    <div value={productName} className="arrowButton arrowLeft" onClick={this.counterClickSub}>
-                                        <img src={require('./image/arrow.png')} alt="" />
+
+                                    <div className="productInfo sectionTwoWrapper">
+                                        {/* arrow */}
+                                        <div value={productName} className="arrowButton arrowLeft" onClick={this.counterClickSub}>
+                                            <img src={require('./image/arrow.png')} alt="" />
+                                        </div>
+
+                                        <div className="pallette">
+                                            {/* top half pallette */}
+                                            <div className="makeUpInfo">
+                                                <div className="makeUpDetails">
+                                                    <h3>{productName}</h3>
+                                                    
+                                                </div>
+                                                <div className="makeUpImg">
+                                                    <img src={this.props.productImageProp} alt={`${this.props.chosenBrandProp}'s ${productName}`} />
+                                                </div>
+                                            </div>
+                                            {/* bottom half of pallette */}
+                                            <div className="makeUpColors">
+                                                <button className="colorButton" style={{ background: product[0].hex }} onClick={this.props.storeColor} value={product[0].hex}></button>
+                                                <button className="colorButton" style={{ background: product[1].hex }} onClick={this.props.storeColor} value={product[1].hex}></button>
+                                                <button className="colorButton" style={{ background: product[2].hex }} onClick={this.props.storeColor} value={product[2].hex}></button>
+                                                <button className="colorButton" style={{ background: product[3].hex }} onClick={this.props.storeColor} value={product[3].hex}></button>
+                                                <button className="colorButton" style={{ background: product[4].hex }} onClick={this.props.storeColor} value={product[4].hex}></button>
+                                                <button className="colorButton" style={{ background: product[5].hex }} onClick={this.props.storeColor} value={product[5].hex}></button>
+                                                <button className="colorButton" style={{ background: product[6].hex }} onClick={this.props.storeColor} value={product[6].hex}></button>
+                                            </div>
+                                        </div>
+                                        
+                                        {/* arrow */}
+                                        <div value={productName} className="arrowButton arrowRight" onClick={this.counterClickAdd}
+                                        >
+                                            <img src={require('./image/arrow.png')} alt="" />
+                                        </div>
                                     </div>
 
-                                    <div value={productName} className="arrowButton arrowRight" onClick={this.counterClickAdd}
-                                    >
-                                        <img src={require('./image/arrow.png')} alt="" />
-                                    </div>
-                                
-                                    <div className="productInfo sectionTwoWrapper">
-                                        <div className="makeUpInfo">
-                                            <div className="makeUpDetails">
-                                                <h3>{productName}</h3>
-                                                
-                                            </div>
-                                            <div className="makeUpImg">
-                                                <img src={this.props.productImageProp} alt={`${this.props.chosenBrandProp}'s ${productName}`} />
-                                            </div>
-                                    
-                                        </div>
-                                
-                                        <div className="makeUpColors">
-                                            <button className="colorButton" style={{ background: product[0].hex }} onClick={this.props.storeColor} value={product[0].hex}></button>
-                                            <button className="colorButton" style={{ background: product[1].hex }} onClick={this.props.storeColor} value={product[1].hex}></button>
-                                            <button className="colorButton" style={{ background: product[2].hex }} onClick={this.props.storeColor} value={product[2].hex}></button>
-                                            <button className="colorButton" style={{ background: product[3].hex }} onClick={this.props.storeColor} value={product[3].hex}></button>
-                                            <button className="colorButton" style={{ background: product[4].hex }} onClick={this.props.storeColor} value={product[4].hex}></button>
-                                            <button className="colorButton" style={{ background: product[5].hex }} onClick={this.props.storeColor} value={product[5].hex}></button>
-                                            <button className="colorButton" style={{ background: product[6].hex }} onClick={this.props.storeColor} value={product[6].hex}></button>
-                                        </div>
-                                    </div>
                                 </div>)
                                 }
                     })
