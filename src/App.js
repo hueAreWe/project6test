@@ -26,9 +26,9 @@ class App extends Component {
       colorsArray: [],
       brandObject: {},
       brandArray: [],
+      counter: 0,
       productImage: '',
       sectionTwoPageLoad: false,
-      
       colorsArray2: {
         1: "#737C84",
         2: "#FBF6E1",
@@ -212,6 +212,34 @@ class App extends Component {
       })
   }
 
+  counterClickAdd = () => {
+    if (this.state.counter < (this.state.brandArray.length - 1)) {
+      this.setState({
+        counter: this.state.counter + 1,
+        sectionTwoPageLoad: false,
+      })
+    } else {
+      this.setState({
+        counter: 0,
+        sectionTwoPageLoad: false,
+      })
+    }
+  }
+
+  counterClickSub = () => {
+    if (this.state.counter > 0) {
+      this.setState({
+        counter: this.state.counter - 1,
+        sectionTwoPageLoad: false,
+      })
+    } else {
+      this.setState({
+        counter: this.state.brandArray.length - 1,
+        sectionTwoPageLoad: false,
+      })
+    }
+  }
+
   // nearestColorFunction = () => {        
   //   const nearestColor = require('nearest-color').from(this.state.colorsArray);
   //   // (console.log(nearestColor('#f01')))
@@ -228,6 +256,7 @@ class App extends Component {
       chosenBrand: b,
       showSectionTwo: true,
       sectionTwoPageLoad: true,
+      counter: 0,
     });
     this.makeUpCall(b);
 
@@ -258,7 +287,7 @@ class App extends Component {
                       this.state.showSectionTwo === true
                         ? (
 
-                          <SectionTwo sectionTwoPageLoad={this.state.sectionTwoPageLoad} storeColor={this.storeColor} brandArray={this.state.brandArray} makeUpCallProp={this.makeUpCall} chosenBrandProp={this.state.chosenBrand} topProductsProp={this.state.topProducts} colorsArrayProp={this.state.colorsArray} productColorsProp={this.appendBrandInfo} productImageProp={this.state.productImage} />
+                          <SectionTwo counterClickAdd={this.counterClickAdd} counterClickSub={this.counterClickSub} counter={this.state.counter}sectionTwoPageLoad={this.state.sectionTwoPageLoad} storeColor={this.storeColor} brandArray={this.state.brandArray} makeUpCallProp={this.makeUpCall} chosenBrandProp={this.state.chosenBrand} topProductsProp={this.state.topProducts} colorsArrayProp={this.state.colorsArray} productColorsProp={this.appendBrandInfo} productImageProp={this.state.productImage} />
                         )
                         : null
                     }
