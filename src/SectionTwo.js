@@ -37,6 +37,11 @@ class SectionTwo extends Component {
                                 
                             
                                 <div>
+                                    <h2>
+                                        {
+                                            index + 1
+                                        } / {this.props.brandArray.length}
+                                    </h2>
 
                                 
                                     <div className="productInfo sectionTwoWrapper">
