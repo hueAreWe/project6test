@@ -60,7 +60,7 @@ class SectionGallery extends Component {
                                     <Parallax className="parallax" 
                                           
                                     >
-                                    <li className="artworkGallery">
+                                    <li className="artworkGallery" id="test">
                                             <Tilt tiltMaxAngleX="5" tiltMaxAngleY="5">
                                         <div className="frame">
                                     <div key={i.id}></div>

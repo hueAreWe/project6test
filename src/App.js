@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.scss';
-// import './App.css';
 import SectionOne from './SectionOne';
 import SectionTwo from './SectionTwo';
 import SectionThree from './SectionThree';
 import Gallery from './Gallery';
-import firebase from './firebase';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 
 class App extends Component {
@@ -17,11 +15,10 @@ class App extends Component {
       showSectionOne: true,
       showSectionTwo: false,
       showSectionThree: true,
-      paintingColor: "#367614",
       chosenBrand: "",
-      // hold the 28 colors
+      sectionTwoPreload: true,
       finalPainting: {},
-      chosenColor: "",
+      chosenColor: false,
       topProducts: [],
       colorsArray: [],
       brandObject: {},
@@ -31,11 +28,6 @@ class App extends Component {
       sectionTwoPageLoad: false,
     }
   }
-
-  componentDidMount() {
-    const dbRef = firebase.database().ref();
-  }  
-
   startCarousel = (e) => {
     this.setState({
       nextProduct: e.target.value
@@ -55,6 +47,8 @@ class App extends Component {
       dataResponse: 'json'
     })
       .then((makeUpData) => {
+
+        this.setState({ sectionTwoPreload: false})
         
         const arrayOfProducts = ['product1', 'product2', 'product3']
         const brandInfo = []
@@ -73,14 +67,12 @@ class App extends Component {
             })
 
             colorArray.push(products.name)
-            // console.log(products.image_link)
             colorArray.push(products.image_link)
             const newColorArray = colorArray.filter((colorObject) => {
               if (typeof colorObject !== undefined) {
                 return colorObject
               }
             })
-            // console.log(newColorArray)
 
             arrayOfProducts.push(products.name);            
             if (brandInfo.length > 2) {
@@ -93,15 +85,10 @@ class App extends Component {
                 productImage: products.image_link,
               })
             }
-            
-            
-            console.log('me showing the image', this.state.productImage)
-
           }
         })
         if (typeof brandInfo !== undefined) {
 
-          // brandInfo.length = 3
           this.setState({
             topProducts: arrayOfProducts.join("and "),
             brandArray: brandInfo,
@@ -151,8 +138,8 @@ class App extends Component {
       counter: 0,
     });
     this.makeUpCall(b);
-
   }
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -179,7 +166,7 @@ class App extends Component {
                       this.state.showSectionTwo === true
                         ? (
 
-                          <SectionTwo counterClickAdd={this.counterClickAdd} counterClickSub={this.counterClickSub} counter={this.state.counter}sectionTwoPageLoad={this.state.sectionTwoPageLoad} storeColor={this.storeColor} brandArray={this.state.brandArray} makeUpCallProp={this.makeUpCall} chosenBrandProp={this.state.chosenBrand} topProductsProp={this.state.topProducts} colorsArrayProp={this.state.colorsArray} productColorsProp={this.appendBrandInfo} productImageProp={this.state.productImage} />
+                          <SectionTwo preload={this.state.sectionTwoPreload} counterClickAdd={this.counterClickAdd} counterClickSub={this.counterClickSub} counter={this.state.counter}sectionTwoPageLoad={this.state.sectionTwoPageLoad} storeColor={this.storeColor} brandArray={this.state.brandArray} makeUpCallProp={this.makeUpCall} chosenBrandProp={this.state.chosenBrand} topProductsProp={this.state.topProducts} colorsArrayProp={this.state.colorsArray} productColorsProp={this.appendBrandInfo} productImageProp={this.state.productImage} />
                         )
                         : null
                     }
