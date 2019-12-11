@@ -33,13 +33,9 @@ class SectionTwo extends Component {
                 <h2>You chose the brand: <span>{this.props.chosenBrandProp}</span> </h2>
 
                 {( this.props.preload === true ?
-
                     <div className="preloader">
                         <img src={products} alt="many make up products" />
-
-                        <div style={{ float: "left", clear: "both" }}
-                            ref={(el) => { this.toTheBottom = el; }}>
-                        </div>
+                        
                     </div>
 
                     :
@@ -154,7 +150,9 @@ class SectionTwo extends Component {
                                 }
                     })
                 }
-
+                    <div style={{ float: "left", clear: "both" }}
+                            ref={(el) => { this.toTheBottom = el; }}>
+                        </div>
             </section>
         )
     }
