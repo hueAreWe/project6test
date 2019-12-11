@@ -23,6 +23,9 @@ html{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    .preloader {
+        background: #dad2e6;
+    }
 }
 
 .sectionTwo h1{

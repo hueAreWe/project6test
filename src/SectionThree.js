@@ -30,6 +30,8 @@ class SectionThree extends Component {
         }
     }
 
+
+
     scrollToBottom = () => {
         this.toTheBottom.scrollIntoView({ behavior: "smooth" });
     }
@@ -109,7 +111,14 @@ class SectionThree extends Component {
 
     render() {
         return (
+
+
             <div className='sectionThree'>
+
+                {(
+                    this.props.paintingColorProp !== false ? 
+               
+
                 <section className="makeArt">
                     <div className="generateContainer" >
                     <div>
@@ -120,7 +129,12 @@ class SectionThree extends Component {
                     <img src={makeupPaintPalette} alt="a paint palette surronded with make up products" onClick={this.getArt}/>
                     <button onClick={this.getArt}>Let's Make Art</button>
                     </div>
+
                 </section>  
+
+                    : null
+
+                )}
 
                 {
                     (
@@ -169,9 +183,7 @@ class SectionThree extends Component {
                                             
                                         </div>
                                 </div>
-                                <div style={{ float: "left", clear: "both" }}
-                                    ref={(el) => { this.toTheBottom = el; }}>
-                                </div>
+ 
                             </div>
                             :
                             (null)
@@ -179,6 +191,9 @@ class SectionThree extends Component {
 
                 }
                 
+                <div style={{ float: "left", clear: "both" }}
+                    ref={(el) => { this.toTheBottom = el; }}>
+                </div>
 
             </div>
         )
