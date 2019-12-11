@@ -26,8 +26,6 @@ class SectionTwo extends Component {
                 {
                     this.props.brandArray.map((product, index) => {
                         
-                        // make a function that calls upon index in the array. have the onclick function in our arrows below call upon the counterClick above, enabling counter to increase by 1 (if right arrow) or decrease by 1 (if left arrow). once done, this will increase our counter and we will compare our index to the number on the counter. if the index number is = to counter, then we will only show what is equal to counter and visually hide everything else (take that from the setup snippet)
-                        
                         
                         const productName = product.slice(-2)[0]
                         const productImgLink = product.slice(-1)[0]
@@ -58,7 +56,7 @@ class SectionTwo extends Component {
                                                     <h3>{productName}</h3>   
                                                 </div>
                                                 <div className="makeUpImg">
-                                                    <img src={this.props.productImageProp} alt={`${this.props.chosenBrandProp}'s ${productName}`} />
+                                                    <img src={productImgLink} alt={`${this.props.chosenBrandProp}'s ${productName}`} />
                                                 </div>
                                             </div>
 
@@ -100,7 +98,7 @@ class SectionTwo extends Component {
                                                     
                                                 </div>
                                                 <div className="makeUpImg">
-                                                    <img src={this.props.productImageProp} alt={`${this.props.chosenBrandProp}'s ${productName}`} />
+                                                    <img src={productImgLink} alt={`${this.props.chosenBrandProp}'s ${productName}`} />
                                                 </div>
                                             </div>
                                             {/* bottom half of pallette */}

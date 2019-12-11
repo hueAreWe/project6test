@@ -28,15 +28,15 @@ html {
 }
 
 .galleryLink {
-  position: fixed;
-  right: 20px;
-  bottom: 10px;
-  font-family: 'Muli', cursive;
-  color: $platinum;
-  letter-spacing: 2px;
-  text-decoration: none;
-  font-size:3rem;
-  z-index: 10;
+    position: fixed;
+    right: 20px;
+    bottom: 10px;
+    font-family: 'Muli', cursive;
+    color: $platinum;
+    letter-spacing: 2px;
+    text-decoration: none;
+    font-size:3rem;
+    z-index: 10;
 }
 
 .galleryLink:hover,
