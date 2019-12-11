@@ -37,15 +37,7 @@ class SectionTwo extends Component {
                                 
                             
                                 <div>
-                                    <div value={productName} className="arrowButton arrowLeft"
-                                    onClick={this.props.counterClickSub}>
-                                        <img src={require('./image/arrow.png')} alt="" />
-                                    </div>
 
-                                    <div value={productName} className="arrowButton arrowRight" onClick={this.props.counterClickAdd}
-                                    >
-                                        <img src={require('./image/arrow.png')} alt="" />
-                                    </div>
                                 
                                     <div className="productInfo sectionTwoWrapper">
                                         {/* arrow */}
@@ -64,8 +56,16 @@ class SectionTwo extends Component {
                                                     <img src={this.props.productImageProp} alt={`${this.props.chosenBrandProp}'s ${productName}`} />
                                                 </div>
                                             </div>
-                                            <div className="makeUpImg">
-                                                <img src={productImgLink} alt={`${this.props.chosenBrandProp}'s ${productName}`} />
+
+                                            {/* bottom half of pallette */}
+                                            <div className="makeUpColors">
+                                                <button className="colorButton" style={{ background: product[0].hex }} onClick={this.props.storeColor} value={product[0].hex}></button>
+                                                <button className="colorButton" style={{ background: product[1].hex }} onClick={this.props.storeColor} value={product[1].hex}></button>
+                                                <button className="colorButton" style={{ background: product[2].hex }} onClick={this.props.storeColor} value={product[2].hex}></button>
+                                                <button className="colorButton" style={{ background: product[3].hex }} onClick={this.props.storeColor} value={product[3].hex}></button>
+                                                <button className="colorButton" style={{ background: product[4].hex }} onClick={this.props.storeColor} value={product[4].hex}></button>
+                                                <button className="colorButton" style={{ background: product[5].hex }} onClick={this.props.storeColor} value={product[5].hex}></button>
+                                                <button className="colorButton" style={{ background: product[6].hex }} onClick={this.props.storeColor} value={product[6].hex}></button>
                                             </div>
                                         </div>
 
